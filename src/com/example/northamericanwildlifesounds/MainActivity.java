@@ -3,12 +3,17 @@
 //maybe I'll try too
 // i hope we can get this to work....
 // Raymonds new comment 
-// Lucas 2nd eclipse commit.
+// Lucas 3rd eclipse commit.
 
 // Raymond's 1st eclipse commit.
 
 //Raymond's third eclipse commit 
+<<<<<<< HEAD
+//Lucas third eclipse commit.
+// Lucas 5th commit 03:36pm
+=======
 //Raymond trying to overwrite Lucas's stuff. 
+>>>>>>> branch 'master' of ssh://git@github.com/LucasMeloPessoa/NorthAmericanWildlifeSounds.git
 package com.example.northamericanwildlifesounds;
 
 import android.os.Bundle;
