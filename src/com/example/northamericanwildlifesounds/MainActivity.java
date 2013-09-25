@@ -8,8 +8,12 @@
 // Raymond's 1st eclipse commit.
 
 //Raymond's third eclipse commit 
+<<<<<<< HEAD
 //Lucas third eclipse commit.
 // Lucas 5th commit 03:36pm
+=======
+//Raymond trying to overwrite Lucas's stuff. 
+>>>>>>> branch 'master' of ssh://git@github.com/LucasMeloPessoa/NorthAmericanWildlifeSounds.git
 package com.example.northamericanwildlifesounds;
 
 import android.os.Bundle;
