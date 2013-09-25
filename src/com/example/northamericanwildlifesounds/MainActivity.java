@@ -1,17 +1,5 @@
-// 09-25-13 02:25
-// I am trying something new.
-//maybe I'll try too
-// i hope we can get this to work....
-// Raymonds new comment 
-// Lucas 3rd eclipse commit.
-
-// Raymond's 1st eclipse commit.
-
-//Raymond's third eclipse commit 
-//Lucas third eclipse commit.
-// Lucas 5th commit 03:36pm
-//Raymond trying to overwrite Lucas's stuff. 
-// 
+// erased all crap 03:40pm
+// Lucas 6th commit.
 package com.example.northamericanwildlifesounds;
 
 import android.os.Bundle;
