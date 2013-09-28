@@ -14,13 +14,35 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.northamericanwildlifesounds.MainActivity"
+            android:name="com.example.northamericanwildlifesounds.Intro"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.northamericanwildlifesounds.Main"
+            android:label="@string/classNameMain" >
+            <intent-filter>
+                <action android:name="com.example.northamericanwildlifesounds.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.northamericanwildlifesounds.Animallist"
+            android:label="@string/classNameAnimalList" >
+            <intent-filter>
+                <action android:name="com.example.northamericanwildlifesounds.ANIMALLIST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.northamericanwildlifesounds.Game"
+            android:label="@string/title_activity_game" >
         </activity>
     </application>
 
