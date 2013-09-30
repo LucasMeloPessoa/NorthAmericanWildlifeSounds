@@ -20,7 +20,7 @@ public class Intro extends Activity {
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}finally{
-					Intent openStartPoint = new Intent("com.example.wildlifesounds_version2.MAINACTIVITY");
+					Intent openStartPoint = new Intent("com.example.northamericanwildlifesounds.MAINACTIVITY");
 					startActivity(openStartPoint);//when this is called, on pause is called after
 				}
 			}
