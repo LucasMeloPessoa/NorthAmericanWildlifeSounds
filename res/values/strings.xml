@@ -10,6 +10,6 @@
     <string name="title_activity_main">Main</string>
     <string name="title_activity_animallist">Animallist</string>
     <string name="title_activity_game">Game</string>
-
+    <string name="title_activity_animal_list_sub">AnimalListSub</string>
 
 </resources>

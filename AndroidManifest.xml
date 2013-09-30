@@ -44,6 +44,10 @@
             android:name="com.example.northamericanwildlifesounds.Game"
             android:label="@string/title_activity_game" >
         </activity>
+        <activity
+            android:name="com.example.northamericanwildlifesounds.AnimalListSub"
+            android:label="@string/title_activity_animal_list_sub" >
+        </activity>
     </application>
 
 </manifest>

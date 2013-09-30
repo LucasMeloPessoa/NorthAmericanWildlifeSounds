@@ -62,7 +62,7 @@ public class Main extends Activity {
 		
 		learn=(Button)findViewById(R.id.learnButton);
 		play=(Button)findViewById(R.id.playButton);
-		
+	
 	}
 	protected void onPause() {
 		// TODO Auto-generated method stub

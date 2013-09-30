@@ -4,7 +4,7 @@ package com.example.northamericanwildlifesounds;
 public class Animal {
 
 	 private String name, imageURL, sound, type;
-
+	 
 	 
 	 
 	//Constructor that initialize all variables

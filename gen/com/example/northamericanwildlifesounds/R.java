@@ -35,15 +35,17 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_animallist=0x7f030000;
-        public static final int activity_game=0x7f030001;
-        public static final int activity_intro=0x7f030002;
-        public static final int activity_main=0x7f030003;
+        public static final int activity_animalsub=0x7f030001;
+        public static final int activity_game=0x7f030002;
+        public static final int activity_intro=0x7f030003;
+        public static final int activity_main=0x7f030004;
     }
     public static final class menu {
-        public static final int animallist=0x7f080000;
-        public static final int game=0x7f080001;
-        public static final int intro=0x7f080002;
-        public static final int main=0x7f080003;
+        public static final int animal_list_sub=0x7f080000;
+        public static final int animallist=0x7f080001;
+        public static final int game=0x7f080002;
+        public static final int intro=0x7f080003;
+        public static final int main=0x7f080004;
     }
     public static final class raw {
         public static final int bobcat=0x7f040000;
@@ -64,6 +66,7 @@ public final class R {
         public static final int classNameMain=0x7f060000;
         public static final int hello_world=0x7f060004;
         public static final int logo=0x7f060005;
+        public static final int title_activity_animal_list_sub=0x7f060009;
         public static final int title_activity_animallist=0x7f060007;
         public static final int title_activity_game=0x7f060008;
         public static final int title_activity_main=0x7f060006;
