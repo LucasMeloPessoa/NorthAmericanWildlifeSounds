@@ -9,8 +9,27 @@
     tools:context=".Game" >
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+    <TextView
+        android:id="@+id/tvDISPLAYSAMPLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="54dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvDISPLAYSAMPLE2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvDISPLAYSAMPLE"
+        android:layout_below="@+id/tvDISPLAYSAMPLE"
+        android:layout_marginTop="93dp"
+        android:text="TextView" />
 
 </RelativeLayout>

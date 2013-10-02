@@ -14,13 +14,16 @@ public class Main extends Activity {
 
 	private Button learn, play;
 	private ViewSwitcher switcher;
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initializeVariable();   // call this method to initialize variables
+		
+		
+		
+		
 		learn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -36,7 +39,8 @@ public class Main extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				Intent game= new Intent("com.example.northamericanwildlifesounds.GAME");
+				startActivity(game);
 			}
 		});
 	

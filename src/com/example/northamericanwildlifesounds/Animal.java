@@ -1,13 +1,15 @@
 package com.example.northamericanwildlifesounds;
 
 
+import android.app.Activity;
 
-public class Animal {
+import com.example.northamericanwildlifesounds.R;
+public class Animal extends Activity {
 
 	 private String name, type;
 	 private int sound, imageURL;
 	 
-
+	 
 	 
 	 
 	 
@@ -17,7 +19,7 @@ public class Animal {
 		this.imageURL=imageURL;
 		this.sound=sound;
 		this.type=type;
-	
+		
 	
 	}
 	
