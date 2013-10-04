@@ -2,6 +2,8 @@ package com.example.northamericanwildlifesounds;
 
 
 
+import java.io.FileNotFoundException;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -22,8 +24,17 @@ public class Game extends Activity {
 		display = (TextView) findViewById(R.id.tvDISPLAYSAMPLE);
 		display2 = (TextView) findViewById(R.id.tvDISPLAYSAMPLE2);
 		int soundb=getResources().getIdentifier("bobcat", "raw", "com.example.northamericanwildlifesounds");
-		int soundd=getResources().getIdentifier("bobcats", "raw", "com.example.northamericanwildlifesounds");
-		//display.setText(soundd);
+		int soundd;
+		try{
+		soundd=getResources().getIdentifier("bobcats", "raw", "com.example.northamericanwildlifesounds");
+		}
+		catch(FileNotFoundException e){
+			
+		}
+	
+			
+		
+		display.setText(soundd);
 		display2.setText(soundb);
 		
 		

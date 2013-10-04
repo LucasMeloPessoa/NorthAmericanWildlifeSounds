@@ -26,7 +26,8 @@ public final class R {
         public static final int mainlogo=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000c;
+        public static final int action_settings=0x7f09000d;
+        public static final int button1=0x7f09000c;
         public static final int elvAnimallist=0x7f090000;
         public static final int imageView1=0x7f09000b;
         public static final int lblListHeader=0x7f090007;
@@ -47,7 +48,7 @@ public final class R {
         public static final int activity_list_group=0x7f030003;
         public static final int activity_list_item=0x7f030004;
         public static final int activity_main=0x7f030005;
-        public static final int activity_sound=0x7f030006;
+        public static final int activity_sound_display=0x7f030006;
     }
     public static final class menu {
         public static final int animal_list_sub=0x7f080000;
@@ -55,6 +56,7 @@ public final class R {
         public static final int game=0x7f080002;
         public static final int intro=0x7f080003;
         public static final int main=0x7f080004;
+        public static final int sound_display=0x7f080005;
     }
     public static final class raw {
         public static final int bobcat=0x7f040000;
@@ -80,6 +82,7 @@ public final class R {
         public static final int title_activity_animallist=0x7f060008;
         public static final int title_activity_game=0x7f060009;
         public static final int title_activity_main=0x7f060007;
+        public static final int title_activity_sound_display=0x7f06000b;
     }
     public static final class style {
         /** 
