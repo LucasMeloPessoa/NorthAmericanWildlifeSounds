@@ -75,7 +75,7 @@ public class Animal extends Activity {
 	/*add Animal type */
 	public void addAnimalType( String name, int sound, int img){
 		//check see if type already exist, if not, add it.
-		if(add name
+		//if(add name
 	}
 	
 }
