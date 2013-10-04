@@ -21,15 +21,19 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int mainlogo=0x7f020001;
+        public static final int buck_grunt=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int mainlogo=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f090009;
-        public static final int learnButton=0x7f090007;
+        public static final int action_settings=0x7f09000c;
+        public static final int elvAnimallist=0x7f090000;
+        public static final int imageView1=0x7f09000b;
+        public static final int lblListHeader=0x7f090007;
+        public static final int lblListItem=0x7f090008;
+        public static final int learnButton=0x7f090009;
         public static final int linearLayout1=0x7f090004;
-        public static final int lvAnimallist=0x7f090000;
-        public static final int playButton=0x7f090008;
+        public static final int playButton=0x7f09000a;
         public static final int textView2=0x7f090001;
         public static final int tvDISPLAYSAMPLE=0x7f090002;
         public static final int tvDISPLAYSAMPLE2=0x7f090003;
@@ -38,10 +42,12 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_animallist=0x7f030000;
-        public static final int activity_animalsub=0x7f030001;
-        public static final int activity_game=0x7f030002;
-        public static final int activity_intro=0x7f030003;
-        public static final int activity_main=0x7f030004;
+        public static final int activity_game=0x7f030001;
+        public static final int activity_intro=0x7f030002;
+        public static final int activity_list_group=0x7f030003;
+        public static final int activity_list_item=0x7f030004;
+        public static final int activity_main=0x7f030005;
+        public static final int activity_sound=0x7f030006;
     }
     public static final class menu {
         public static final int animal_list_sub=0x7f080000;

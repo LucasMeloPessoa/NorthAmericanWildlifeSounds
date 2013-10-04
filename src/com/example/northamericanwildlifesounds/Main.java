@@ -22,8 +22,6 @@ public class Main extends Activity {
 		initializeVariable();   // call this method to initialize variables
 		
 		
-		
-		
 		learn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

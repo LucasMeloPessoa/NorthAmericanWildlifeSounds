@@ -22,7 +22,8 @@ public class Game extends Activity {
 		display = (TextView) findViewById(R.id.tvDISPLAYSAMPLE);
 		display2 = (TextView) findViewById(R.id.tvDISPLAYSAMPLE2);
 		int soundb=getResources().getIdentifier("bobcat", "raw", "com.example.northamericanwildlifesounds");
-		display.setText(sound);
+		int soundd=getResources().getIdentifier("bobcats", "raw", "com.example.northamericanwildlifesounds");
+		//display.setText(soundd);
 		display2.setText(soundb);
 		
 		

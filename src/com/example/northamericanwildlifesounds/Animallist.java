@@ -86,11 +86,6 @@ public class Animallist extends Activity {
     }
 
     
-    
-    
-    
-    
-    
     private HashMap<String, List<Integer>> setImageURLData(String[] file) {
     	//IMPLEMENT YOUR CODE HERE
     	HashMap<String, List<Integer>> data=new HashMap<String, List<Integer>>() ;
@@ -103,6 +98,18 @@ public class Animallist extends Activity {
     private HashMap<String, List<Integer>> setSoundData(String[] file) {
     	//IMPLEMENT YOUR CODE HERE
     	HashMap<String, List<Integer>> data=new HashMap<String, List<Integer>>() ;
+    	int soundfile;
+    	
+    	for(int i=0;i<file.length;i++)
+    	{
+    		
+    		
+    		
+    		
+    		
+    		
+    	}
+    	
     	
     	return data;
     }
@@ -117,12 +124,27 @@ public class Animallist extends Activity {
     */
     
     private String[] sortStringArray(String[] file) {
-    	//IMPLEMENT YOUR CODE HERE
-    	String[]data=file;
     	
+    	if(file == null)
+    		return file;
     	
+    	String[]data = file;
+    	
+    	for(int j = 0; j < data.length; j++)
+    	{
+    		for (int i = j + 1; i < data.length; i++)
+    		{
+    			if(data[i].compareTo(data[j]) < 0)
+    			{
+    				String temp = data[j];
+    				data[j] = data[i];
+    				data[i] = temp;
+    			}
+    		}
+    	}
     	return data;
-    }
+    
+}
     
     
 
