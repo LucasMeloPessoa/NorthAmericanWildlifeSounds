@@ -26,11 +26,11 @@ public class Game extends Activity {
 		int soundb=getResources().getIdentifier("bobcat", "raw", "com.example.northamericanwildlifesounds");
 		int soundd;
 		
-		soundd=getResources().getIdentifier("bobcats", "raw", "com.example.northamericanwildlifesounds");
+		soundd=getResources().getIdentifier("mainlogo", "drawable", "com.example.northamericanwildlifesounds");
 		
 			
 		
-		display.setText(sound);
+		display.setText(soundd);
 		display2.setText(soundb);
 		
 		

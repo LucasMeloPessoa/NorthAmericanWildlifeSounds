@@ -23,7 +23,7 @@ public class Animallist extends Activity {
 	private ArrayList<Animal> list;										
 	private String[] animalCategory;
 
-	HashMap<String, List<Integer>> sound, imageURL;
+	HashMap<String, Integer> sound, imageURL;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String>animalHeader;
@@ -66,7 +66,7 @@ public class Animallist extends Activity {
         // Adding child data
    		List<Animal>deer = new ArrayList<Animal>();
    		deer.add(new Animal("Doe Grunt",40, 20));
-   		deer.add(new Animal("Buck Grunt",40, 20));
+   		deer.add(new Animal("Buck Grunt",getSoundFile("deer"), getImageURLFile("buck_grunt")));
    		deer.add(new Animal("Buck Bawl",40, 20));
    		deer.add(new Animal("Contact Call",40, 20));
    	
@@ -85,33 +85,25 @@ public class Animallist extends Activity {
         
     }
 
+    /**
+     * WARNING: Make sure you put a image file in res/drawable folder 
+     * @param file
+     * @return
+     */
+    private int getImageURLFile(String file) {
+		return getResources().getIdentifier(file, "drawable", "com.example.northamericanwildlifesounds");
+	
+}
+
     
-    private HashMap<String, List<Integer>> setImageURLData(String[] file) {
-    	//IMPLEMENT YOUR CODE HERE
-    	HashMap<String, List<Integer>> data=new HashMap<String, List<Integer>>() ;
+    /**
+     * WARNING: Make sure you put a sound file in res/raw folder 
+     * @param file
+     * @return
+     */
+    private int getSoundFile(String file) {
+    		return getResources().getIdentifier(file, "raw", "com.example.northamericanwildlifesounds");
     	
-    	return data;
-    }
-      
-    
-    
-    private HashMap<String, List<Integer>> setSoundData(String[] file) {
-    	//IMPLEMENT YOUR CODE HERE
-    	HashMap<String, List<Integer>> data=new HashMap<String, List<Integer>>() ;
-    	int soundfile;
-    	
-    	for(int i=0;i<file.length;i++)
-    	{
-    		
-    		
-    		
-    		
-    		
-    		
-    	}
-    	
-    	
-    	return data;
     }
     
     
