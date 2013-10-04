@@ -25,16 +25,12 @@ public class Game extends Activity {
 		display2 = (TextView) findViewById(R.id.tvDISPLAYSAMPLE2);
 		int soundb=getResources().getIdentifier("bobcat", "raw", "com.example.northamericanwildlifesounds");
 		int soundd;
-		try{
+		
 		soundd=getResources().getIdentifier("bobcats", "raw", "com.example.northamericanwildlifesounds");
-		}
-		catch(FileNotFoundException e){
-			
-		}
-	
+		
 			
 		
-		display.setText(soundd);
+		display.setText(sound);
 		display2.setText(soundb);
 		
 		
