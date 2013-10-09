@@ -6,6 +6,8 @@ import java.util.List;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -23,12 +25,15 @@ public class Animallist extends Activity {
 
 	private ArrayList<Animal> list;										
 	private String[] animalCategory;
+	
 
 	HashMap<String, Integer> sound, imageURL;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String>animalHeader;
     HashMap<String, List<Animal>> animalChild;
+    
+    
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,6 @@ public class Animallist extends Activity {
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
         //work
-        
         
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
@@ -65,6 +69,7 @@ public class Animallist extends Activity {
  
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        
     }
  
 
@@ -104,6 +109,7 @@ public class Animallist extends Activity {
         animalChild.put("deer", deer); // Header, Child data
         animalChild.put("bobcat", bobcat);
         animalChild.put("duck", duck);
+       
         
     }
 
