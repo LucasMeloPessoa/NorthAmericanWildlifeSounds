@@ -37,7 +37,7 @@ public class Animallist extends Activity {
  
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
-        
+        //work
         
         
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
