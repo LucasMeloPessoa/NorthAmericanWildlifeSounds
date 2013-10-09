@@ -8,28 +8,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Game" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
-    <TextView
-        android:id="@+id/tvDISPLAYSAMPLE"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="54dp"
-        android:text="TextView" />
+        android:layout_alignParentTop="true"
+        android:src="@drawable/bobcat" />
 
-    <TextView
-        android:id="@+id/tvDISPLAYSAMPLE2"
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvDISPLAYSAMPLE"
-        android:layout_below="@+id/tvDISPLAYSAMPLE"
-        android:layout_marginTop="93dp"
-        android:text="TextView" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView1"
+        android:text="Button" />
 
 </RelativeLayout>
