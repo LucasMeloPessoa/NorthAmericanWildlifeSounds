@@ -3,9 +3,13 @@ package com.example.northamericanwildlifesounds;
 
 
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.widget.TextView;
 
@@ -27,13 +31,30 @@ public class Game extends Activity {
 		int soundd;
 		
 		soundd=getResources().getIdentifier("mainlogo", "drawable", "com.example.northamericanwildlifesounds");
+		Intent intent = getIntent();
+		//HashMap<String, List<Animal>> hashy = (HashMap) intent.getSerializableExtra("map");
+		
+		String hashyString = "NOTHING";
+		
+		//hashyString = (String) hashy.get("Doe Grunt").get(0).getName();
+		
+		//System.out.println(hashyString);
+		
+		/*
+		for (HashMap.Entry<String, List<Animal>> entry : hashy.entrySet()) {
+			hashyString = entry.getKey();
+		}
+		*/
+		
+		//String hashyString = hashy.entrySet().
 		
 			
 		
 		display.setText(soundd);
-		display2.setText(soundb);
+		//display2.setText(hashyString);
 		
-		
+		System.out.println("WHERE ARE YOU ALREADY??????");
+		System.out.println(hashyString);
 		
 		
 		
