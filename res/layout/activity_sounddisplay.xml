@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/bobcat" />
+        android:src="@drawable/bobcat" /> <!--  how to make this dynamic? -->
 
     <Button
         android:id="@+id/button1"
