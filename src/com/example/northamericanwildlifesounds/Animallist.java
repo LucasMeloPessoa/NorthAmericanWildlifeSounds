@@ -43,9 +43,15 @@ public class Animallist extends Activity {
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Object e = (Object)listAdapter.getChild(groupPosition, childPosition);
+                
+                
+                System.out.println("WHAT OBJECT ARE YOU?");
+                
+            	//HashMap<String, List<Animal>> animalChild = (HashMap)listAdapter.getChild(groupPosition, childPosition);
                 //doing some work for child
-				// TODO Auto-generated method stub
-				Intent game= new Intent("com.example.northamericanwildlifesounds.GAME");
+				
+				Intent game = new Intent("com.example.northamericanwildlifesounds.GAME");
+				//game.putExtra("map", animalChild);
 				startActivity(game);
 				return true;
             }
