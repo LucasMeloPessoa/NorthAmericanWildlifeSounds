@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -36,6 +37,21 @@ public class Animallist extends Activity {
  
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
+        
+        
+        
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Object e = (Object)listAdapter.getChild(groupPosition, childPosition);
+                //doing some work for child
+				// TODO Auto-generated method stub
+				Intent game= new Intent("com.example.northamericanwildlifesounds.GAME");
+				startActivity(game);
+				return true;
+            }
+        });
+        
+        
  
         // preparing list data
         initializeVariables();
