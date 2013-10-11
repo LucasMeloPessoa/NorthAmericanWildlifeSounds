@@ -13,9 +13,16 @@ public class Animal {
 		imageURL=image;
 	}
 	
+	// second constructor
+	public Animal(){
+		name=null;
+		sound=-1;	// negative means invalid ID
+		imageURL=-1;
+	}
+	
 
 	
-	public void addTypeName(String input){
+	public void addName(String input){
 		if (input!=null){
 			name=input;
 		}
