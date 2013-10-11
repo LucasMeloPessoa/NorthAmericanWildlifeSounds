@@ -2,13 +2,16 @@ package com.example.northamericanwildlifesounds;
 
 
 public class Animal {
-	private  String name;
+	private  String name, nameTag;
+	
 	private int sound,imageURL;
 	
 	
+	
 	//constructor
-	public Animal(String name, int soundfile, int image){
+	public Animal(String name, String tag, int soundfile, int image){
 		this.name=name;
+		nameTag=tag;
 		sound=soundfile;
 		imageURL=image;
 	}
@@ -18,9 +21,16 @@ public class Animal {
 		name=null;
 		sound=-1;	// negative means invalid ID
 		imageURL=-1;
+		nameTag=null;
 	}
 	
 
+	
+	public void addNameTag(String input){
+		if (input!=null){
+			nameTag=input;
+		}
+	}
 	
 	public void addName(String input){
 		if (input!=null){
@@ -36,7 +46,9 @@ public class Animal {
 		imageURL=input;
 }
 
-
+	public String getNameTag(){
+		return name;
+	}
 	public String getName(){
 		return name;
 	}

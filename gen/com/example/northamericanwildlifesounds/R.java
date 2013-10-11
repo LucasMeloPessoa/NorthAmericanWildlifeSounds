@@ -22,12 +22,12 @@ public final class R {
     }
     public static final class drawable {
         public static final int bobcat=0x7f020000;
-        public static final int buck_grunt=0x7f020001;
-        public static final int coyote=0x7f020002;
+        public static final int coyote=0x7f020001;
+        public static final int deer=0x7f020002;
         public static final int fox=0x7f020003;
         public static final int ic_launcher=0x7f020004;
         public static final int mainlogo=0x7f020005;
-        public static final int mountain_lion=0x7f020006;
+        public static final int mountailion=0x7f020006;
         public static final int possum=0x7f020007;
         public static final int rabbit=0x7f020008;
         public static final int raccoon=0x7f020009;

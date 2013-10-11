@@ -76,6 +76,7 @@ public class SoundDisplay extends Activity {
 		animal_file.addName(intent.getStringExtra("name"));
 		animal_file.addImageURL(intent.getIntExtra("image", -1));
 		animal_file.addSound(intent.getIntExtra("sound", -1));
+		animal_file.addNameTag(intent.getStringExtra("nameTag"));
 		
 		display=(ImageView) findViewById(R.id.imageView1);
 		//play=(Button) findViewById(R.id.imDisplay);

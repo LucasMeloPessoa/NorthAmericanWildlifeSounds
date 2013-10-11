@@ -35,6 +35,7 @@ public class Animallist extends Activity {
     HashMap<String, List<Animal>> animalChild;
     
     
+    
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,24 +46,7 @@ public class Animallist extends Activity {
         expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
         //work
         
-        /*
-        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Object e = (Object)listAdapter.getChild(groupPosition, childPosition);
-                
-                
-                System.out.println("WHAT OBJECT ARE YOU?");
-                
-            	//HashMap<String, List<Animal>> animalChild = (HashMap)listAdapter.getChild(groupPosition, childPosition);
-                //doing some work for child
-				
-				Intent game = new Intent("com.example.northamericanwildlifesounds.SOUNDDISPLAY");
-				//game.putExtra("map", animalChild);
-				startActivity(game);
-				return true;
-            }
-        });
-        */
+
         
         expListView.setOnChildClickListener(new OnChildClickListener() {
      	   
@@ -78,18 +62,14 @@ public class Animallist extends Activity {
                 
                 //THIS IS MANUALLY ADDED. IT IS SUPPOSELY TO BE ADDED at beginning
                 animalClk=animalChild.get( animalHeader.get(groupPosition)).get(childPosition);
-                if(animalClk.getSound()== -1){
-                animalClk.addSound(getSoundFile(animalClk.getName()));  
-                }
-                if(animalClk.getImageURL()== -1){
-                animalClk.addImageURL(getImageURLFile(animalClk.getName())); //get Image ID of this animal
-                }
-                Intent soundDP = new Intent("com.example.northamericanwildlifesounds.SOUNDDISPLAY");
-                soundDP.putExtra("name", animalClk.getName());
-                soundDP.putExtra("sound", animalClk.getSound());
-                soundDP.putExtra("image", animalClk.getImageURL());
-                startActivity(soundDP);
+                if(animalClk.getNameTag()!=null){
+                	if(animalClk.getImageURL()== -1){animalClk.addImageURL(getImageURLFile(animalClk.getNameTag())); }
+                	if(animalClk.getSound()== -1){animalClk.addSound(getSoundFile(animalClk.getNameTag())); }
                 
+                Intent soundDP =setUpIntent(animalClk);
+                startActivity(soundDP);
+                }
+            
                 return false;
             }
         });
@@ -99,25 +79,23 @@ public class Animallist extends Activity {
        
         
                 if(animalChild.get(animalHeader.get(groupPosition)).size()==1){
-                    
-                    animalClk=new Animal();
-                    animalClk.addName(animalHeader.get(groupPosition));
-                    if(animalClk.getSound()== -1){ animalClk.addSound(getSoundFile(animalClk.getName())); }
-                    if(animalClk.getImageURL()== -1){animalClk.addImageURL(getImageURLFile(animalClk.getName())); 
+       
+                    animalClk=animalChild.get(animalHeader.get(groupPosition)).get(0);
+                    if(animalClk.getNameTag()!=null){
+                    	if(animalClk.getSound()== -1){ animalClk.addSound(getSoundFile(animalClk.getName())); }
+                    	if(animalClk.getImageURL()== -1){animalClk.addImageURL(getImageURLFile(animalClk.getName())); }
                     }
-                    Intent soundDP = new Intent("com.example.northamericanwildlifesounds.SOUNDDISPLAY");
-                    soundDP.putExtra("name", animalClk.getName());
-                    soundDP.putExtra("sound", animalClk.getSound());
-                    soundDP.putExtra("image", animalClk.getImageURL());
+                    Intent soundDP = setUpIntent(animalClk);
                     startActivity(soundDP);
                     
                     
                 }
+                
                 return false;
             }
         });
         
-        
+   
         
  
         // preparing list data
@@ -128,7 +106,18 @@ public class Animallist extends Activity {
         expListView.setAdapter(listAdapter);
         
     }
- 
+    private  Intent setUpIntent(Animal animalClk){
+    	Intent soundDP;
+    	soundDP= new Intent("com.example.northamericanwildlifesounds.SOUNDDISPLAY");
+        soundDP.putExtra("name", animalClk.getName());
+        soundDP.putExtra("sound", animalClk.getSound());
+        soundDP.putExtra("image", animalClk.getImageURL());
+        soundDP.putExtra("nameTag", animalClk.getNameTag());
+    	
+    	return soundDP;
+    }
+    
+    
 
     private void initializeVariables() {
         animalHeader = new ArrayList<String>();
@@ -137,7 +126,7 @@ public class Animallist extends Activity {
         //INSERT MAIN ANIMAL HERE
         animalCategory=new String[]{ "Bobcat", "Coyote", "Deer", "Fox",
     			"Mountain Lion", "Possum", "Rabbit", "Raccoon", "Squirrel", 
-    			"Turkey","Duck","Elephant","Chicken" };
+    			"Turkey" }; // "DUCK
         
        
         // Adding Animal Head data
@@ -146,27 +135,84 @@ public class Animallist extends Activity {
         animalHeader.add(animalCategory[i]);
    		}
 
- 
-        // Adding child data
-   		List<Animal>deer = new ArrayList<Animal>();
-   		deer.add(new Animal("Doe Grunt", getSoundFile("doe_grunt"), getImageURLFile("doe_grunt")));
-   		deer.add(new Animal("Buck Grunt", getSoundFile("buck_grunt"), getImageURLFile("buck_grunt")));
-   		deer.add(new Animal("Buck Bawl", getSoundFile("buck_bawl"), getImageURLFile("buck_brawl")));
-   		deer.add(new Animal("Contact Call", getSoundFile("contact_call"), getImageURLFile("contact_call")));
-   	
-   		List<Animal>bobcat = new ArrayList<Animal>();
-   		bobcat.add(new Animal("Bobcat1", getSoundFile("bobcat1"), getImageURLFile("bobcat")));
-   		bobcat.add(new Animal("Bobcat2", getSoundFile("bobcat2"), getImageURLFile("bobcat")));
    		
+   		
+   	/** function Prototype
+   	 * Animal Deer=new Animal(String DisplayName, String NameTag, int sound, int imageURL)
+   	 * DisplayName is the name you want to display on the screen 
+   	 * NameTag is the same name as the sound or image file name(Make sure these names are matched!)
+   	 * sound is the sound ID of the animal. 
+   	 * imageURL is the image ID of the animal. 
+   	 * **/
+   		//=====================================================================
+   		//CORRECT THESE ERRORS BELOW BY ADD ONE MORE PARAMETER FOR NAMETAG!!!!!!!!!!!!!
+        // Adding child data
+        // Adding child data
+   		/*
+   		List<Animal>A = new ArrayList<Animal>();
+   		A.add(new Animal("", getSoundFile(""), getImageURLFile("")));
+   		*/
+   		
+   		List<Animal>bobcat = new ArrayList<Animal>();
+   		bobcat.add(new Animal("Bobcat", "bobcat", getSoundFile("bobcat"), getImageURLFile("bobcat")));
+   		bobcat.add(new Animal("Bobcat1", "bobcat", getSoundFile("bobcat1"), getImageURLFile("bobcat")));
+   		bobcat.add(new Animal("Bobcat2", "bobcat", getSoundFile("bobcat2"), getImageURLFile("bobcat")));
+   		bobcat.add(new Animal("Bobcat3", "bobcat", getSoundFile("bobcat3"), getImageURLFile("bobcat")));
+   		//bobcat.add(new Animal("Bobcat Growl", getSoundFile("bobcat1"), getImageURLFile("bobcat")));
+   		//bobcat.add(new Animal("Bobcat Roar", getSoundFile("bobcat2"), getImageURLFile("bobcat")));
+   		//bobcat.add(new Animal("Bobcat Snarl", getSoundFile("bobcat2"), getImageURLFile("bobcat")));
+   		
+   		List<Animal>coyote = new ArrayList<Animal>();
+   		coyote.add(new Animal("Coyote", "coyote", getSoundFile("coyote"), getImageURLFile("coyote")));
+   		//coyote.add(new Animal("Coyote", getSoundFile("coyote"), getImageURLFile("coyote")));
+   		
+   		List<Animal>deer = new ArrayList<Animal>();
+   		deer.add(new Animal("Deer", "deer", getSoundFile("deer"), getImageURLFile("deer")));
+   		deer.add(new Animal("Deer", "deer", getSoundFile("deer"), getImageURLFile("deer")));
+   		//deer.add(new Animal("Doe Grunt", getSoundFile("deer"), getImageURLFile("buck_grunt")));
+   		//deer.add(new Animal("Buck Grunt", getSoundFile("buck_grunt"), getImageURLFile("buck_grunt")));
+   		//deer.add(new Animal("Buck Bawl", getSoundFile("buck_bawl"), getImageURLFile("buck_brawl")));
+   		//deer.add(new Animal("Contact Call", getSoundFile("contact_call"), getImageURLFile("contact_call")));
+   		
+   		/*
    		List<Animal>duck = new ArrayList<Animal>();
    		duck.add(new Animal("Duck Quack", getSoundFile("duck"), getImageURLFile("duck_quack")));
    		duck.add(new Animal("Duck Swimming", getSoundFile("duck swimming"), getImageURLFile("duck_swimming")));
- 
+ 		*/
+   		
+   		List<Animal>fox = new ArrayList<Animal>();
+   		fox.add(new Animal("Fox", "fox", getSoundFile("fox"), getImageURLFile("fox")));
+   		//fox.add(new Animal("Fox", getSoundFile("fox"), getImageURLFile("fox")));
+   		
+   		List<Animal>mountainlion = new ArrayList<Animal>();
+   		mountainlion.add(new Animal("Mountain Lion", "mountainlion", getSoundFile("mountainlion"), getImageURLFile("mountainlion")));
+   		
+   		List<Animal>possum = new ArrayList<Animal>();
+   		possum.add(new Animal("Possum", "possum", getSoundFile("possum"), getImageURLFile("possum")));
+   		
+   		List<Animal>rabbit = new ArrayList<Animal>();
+   		rabbit.add(new Animal("Rabbit", "rabbit", getSoundFile("rabbit"), getImageURLFile("rabbit")));
+   		
+   		List<Animal>raccoon = new ArrayList<Animal>();
+   		raccoon.add(new Animal("Raccoon", "raccoon", getSoundFile("raccoon"), getImageURLFile("raccoon")));
+   		
+   		List<Animal>squirrel = new ArrayList<Animal>();
+   		squirrel.add(new Animal("Squirrel", "squirrel", getSoundFile("squirrel"), getImageURLFile("squirrel")));
+   		
+   		List<Animal>turkey = new ArrayList<Animal>();
+   		turkey.add(new Animal("Turkey", "turkey", getSoundFile("turkey"), getImageURLFile("turkey")));
 
  
         animalChild.put("Deer", deer); // Header, Child data
         animalChild.put("Bobcat", bobcat);
-        animalChild.put("Duck", duck);
+        animalChild.put("Coyote", coyote);
+        animalChild.put("Fox", fox);
+        animalChild.put("Mountain Lion", mountainlion);
+        animalChild.put("Possum", possum);
+        animalChild.put("Rabbit", rabbit);
+        animalChild.put("Raccoon", raccoon);
+        animalChild.put("Squirrel", squirrel);
+        animalChild.put("Turkey", turkey);
        
         
     }
