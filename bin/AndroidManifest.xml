@@ -56,6 +56,11 @@
         <activity
             android:name="com.example.northamericanwildlifesounds.SoundDisplay"
             android:label="@string/title_activity_sound_display" >
+                <intent-filter>
+                <action android:name="com.example.northamericanwildlifesounds.SOUNDDISPLAY" />
+                
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

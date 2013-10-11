@@ -54,7 +54,7 @@ public class Animallist extends Activity {
             	//HashMap<String, List<Animal>> animalChild = (HashMap)listAdapter.getChild(groupPosition, childPosition);
                 //doing some work for child
 				
-				Intent game = new Intent("com.example.northamericanwildlifesounds.GAME");
+				Intent game = new Intent("com.example.northamericanwildlifesounds.SOUNDDISPLAY");
 				//game.putExtra("map", animalChild);
 				startActivity(game);
 				return true;
