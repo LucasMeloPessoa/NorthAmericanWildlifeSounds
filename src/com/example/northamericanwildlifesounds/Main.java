@@ -36,11 +36,6 @@ public class Main extends Activity {
 			public void onClick(View v) {
 				
 				 //OurSoundPlayer.playSound(this, 4); //trying to play a sound! 
-		        
-				MediaPlayer mPlayer = MediaPlayer.create(getBaseContext(), R.raw.mountainlion); // in 2nd param u have to pass your desire ringtone
-				//mPlayer.prepare();
-				mPlayer.start();
-				
 				// TODO Auto-generated method stub
 				Intent animallist= new Intent("com.example.northamericanwildlifesounds.ANIMALLIST");
 				startActivity(animallist);
