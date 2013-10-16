@@ -9,12 +9,6 @@
     android:weightSum="20"
     android:background="#000000"
     tools:context=".SoundDisplay" >
-
-    <!--<TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" /> -->
         
     <LinearLayout
         	android:background="#000000"
@@ -43,7 +37,7 @@
         android:layout_below="@+id/imageView1"
         android:background="#0e76bd"
         android:textColor="#f6ee31"
-        android:textSize="30dp"
+        android:textSize="@dimen/campaign_textfontsize"
         android:textStyle="bold"
         android:text="PLAY"
         android:layout_weight="3" />
