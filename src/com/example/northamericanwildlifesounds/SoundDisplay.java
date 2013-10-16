@@ -35,7 +35,7 @@ public class SoundDisplay extends Activity {
 		
 		// /*
 		play.setOnClickListener(new View.OnClickListener() {
-			MediaPlayer mPlayer = MediaPlayer.create(getBaseContext(), animal_file.getSound()); // in 2nd param u have to pass your desire ringtone
+			MediaPlayer mPlayer = MediaPlayer.create(getBaseContext(), animal_file.getSound()); // In second parameter, you need to pass in your desired animal sound. 
 			
 			
 			@Override
@@ -44,8 +44,8 @@ public class SoundDisplay extends Activity {
 				//System.out.println("CHECKING IF IT WORKS");
 				
 				
-				if(v.getId() == R.id.button1) {
-				//mPlayer = MediaPlayer.create(getBaseContext(), R.raw.mountainlion); // in 2nd param u have to pass your desire ringtone
+				if(v.getId() == R.id.b_play) {
+				//mPlayer = MediaPlayer.create(getBaseContext(), R.raw.mountainlion);
 				//mPlayer.prepare();
 				//mPlayer.seekTo(0);
 				mPlayer.start();
@@ -80,7 +80,7 @@ public class SoundDisplay extends Activity {
 		
 		display=(ImageView) findViewById(R.id.imageView1);
 		//play=(Button) findViewById(R.id.imDisplay);
-		play=(Button)findViewById(R.id.button1);
+		play=(Button)findViewById(R.id.b_play);
 	
 	}
 

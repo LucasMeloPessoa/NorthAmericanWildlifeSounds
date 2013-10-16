@@ -1,3 +1,5 @@
+// SOUNDPOOL IS NOT WORKING CORRECTLY RIGHT NOW, THIS CLASS ISN'T USED AT THE MOMENT.
+
 package com.example.northamericanwildlifesounds;
 
 import java.util.HashMap;
