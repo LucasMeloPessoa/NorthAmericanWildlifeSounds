@@ -30,6 +30,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/imageView1"
-        android:text="Button" />
+        android:background="#0e76bd"
+        android:textColor="#f6ee31"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:text="PLAY" />
 
 </RelativeLayout>
