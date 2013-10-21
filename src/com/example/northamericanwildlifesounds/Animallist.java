@@ -26,7 +26,8 @@ public class Animallist extends Activity {
 	private ArrayList<Animal> list;										
 	private String[] animalCategory;
 	private Animal animalClk;
-	
+	Intent intent;
+	String Mode;
 
 	HashMap<String, Integer> sound, imageURL;
     ExpandableListAdapter listAdapter;
@@ -40,11 +41,11 @@ public class Animallist extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // preparing list data
+        initializeVariables();
         setContentView(R.layout.activity_animallist);
  
-        // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
-        //work
+
         
 
         
@@ -53,10 +54,7 @@ public class Animallist extends Activity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
-                /*Toast.makeText(
-                        getApplicationContext(),
-                        animalHeader.get(groupPosition)  + " : " + animalChild.get( animalHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT)
-                        .show();
+                /*Toast.makeText(getApplicationContext(),"your_Text_here", Toast.LENGTH_SHORT).show();
                 */
                 
                 
@@ -98,12 +96,8 @@ public class Animallist extends Activity {
    
         
  
-        // preparing list data
-        initializeVariables();
-        listAdapter = new ExpandableListAdapter(this, animalHeader, animalChild);
- 
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
+      
+
         
     }
     private  Intent setUpIntent(Animal animalClk){
@@ -120,22 +114,34 @@ public class Animallist extends Activity {
     
 
     private void initializeVariables() {
+        // get the listview
+        expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
+
         animalHeader = new ArrayList<String>();
         animalChild = new HashMap<String, List<Animal>>();
+        setUpAnimalData();	
         
+        listAdapter = new ExpandableListAdapter(this, animalHeader, animalChild);
+        expListView.setAdapter(listAdapter);
+        
+    }
+    
+    
+    
+    
+    
+    private void setUpAnimalData(){    
         //INSERT MAIN ANIMAL HERE
         animalCategory=new String[]{ "Bobcat", "Coyote", "Deer", "Fox",
     			"Mountain Lion", "Possum", "Rabbit", "Raccoon", "Squirrel", 
     			"Turkey" }; // "DUCK
         
-       
         // Adding Animal Head data
         animalCategory=sortStringArray(animalCategory);	//to be sorted.
    		for(int i=0;i<animalCategory.length;i++){
         animalHeader.add(animalCategory[i]);
    		}
 
-   		
    		
    	/** function Prototype
    	 * Animal Deer=new Animal(String DisplayName, String NameTag, int sound, int imageURL)
@@ -144,15 +150,7 @@ public class Animallist extends Activity {
    	 * sound is the sound ID of the animal. 
    	 * imageURL is the image ID of the animal. 
    	 * **/
-   		//=====================================================================
-   		//CORRECT THESE ERRORS BELOW BY ADD ONE MORE PARAMETER FOR NAMETAG!!!!!!!!!!!!!
-        // Adding child data
-        // Adding child data
-   		/*
-   		List<Animal>A = new ArrayList<Animal>();
-   		A.add(new Animal("", getSoundFile(""), getImageURLFile("")));
-   		*/
-   		
+  
    		List<Animal>bobcat = new ArrayList<Animal>();
    		bobcat.add(new Animal("Bobcat", "bobcat", getSoundFile("bobcat"), getImageURLFile("bobcat")));
    		bobcat.add(new Animal("Bobcat1", "bobcat", getSoundFile("bobcat1"), getImageURLFile("bobcat")));
@@ -217,6 +215,7 @@ public class Animallist extends Activity {
         
     }
 
+    
     /**
      * WARNING: Make sure you put a image file in res/drawable folder 
      * @param file
@@ -227,6 +226,9 @@ public class Animallist extends Activity {
 	
 }
 
+    
+    
+    
     
     /**
      * WARNING: Make sure you put a sound file in res/raw folder 
