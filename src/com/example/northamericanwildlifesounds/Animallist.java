@@ -27,7 +27,7 @@ public class Animallist extends Activity {
 	private String[] animalCategory;
 	private Animal animalClk;
 	Intent intent;
-	String Mode;
+	String mode;
 
 	HashMap<String, Integer> sound, imageURL;
     ExpandableListAdapter listAdapter;
@@ -42,9 +42,13 @@ public class Animallist extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // preparing list data
-        initializeVariables();
+        intent = getIntent();
+        mode=intent.getStringExtra("MODE");
+       
         setContentView(R.layout.activity_animallist);
- 
+       
+        
+        initializeVariables();
 
         
 
@@ -94,7 +98,8 @@ public class Animallist extends Activity {
         });
         
    
-        
+        listAdapter = new ExpandableListAdapter(this, animalHeader, animalChild);
+        expListView.setAdapter(listAdapter);
  
       
 
@@ -121,8 +126,7 @@ public class Animallist extends Activity {
         animalChild = new HashMap<String, List<Animal>>();
         setUpAnimalData();	
         
-        listAdapter = new ExpandableListAdapter(this, animalHeader, animalChild);
-        expListView.setAdapter(listAdapter);
+
         
     }
     
