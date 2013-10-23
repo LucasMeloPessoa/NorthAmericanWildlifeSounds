@@ -24,7 +24,7 @@
             android:maxHeight="@dimen/activity_horizontal_margin"
             android:text="LEARN"
             android:textColor="#f6ee31"
-            android:textSize="60dp"
+            android:textSize="@dimen/main_textfontsize"
             android:textStyle="bold"
             android:layout_weight="1" />
 
@@ -36,7 +36,7 @@
             android:gravity="center"
             android:text="PLAY"
             android:textColor="#0e76bd"
-            android:textSize="60dp"
+            android:textSize="@dimen/main_textfontsize"
             android:textStyle="bold"
             android:layout_weight="1" />
         
