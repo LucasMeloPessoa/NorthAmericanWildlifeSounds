@@ -52,7 +52,7 @@ public final class R {
         public static final int lblListItem=0x7f0a0009;
         public static final int learnButton=0x7f0a000a;
         public static final int linearLayout1=0x7f0a0005;
-        public static final int listView1=0x7f0a0001;
+        public static final int lv_display=0x7f0a0001;
         public static final int playButton=0x7f0a000b;
         public static final int textView2=0x7f0a0002;
         public static final int tvDISPLAYSAMPLE=0x7f0a0003;

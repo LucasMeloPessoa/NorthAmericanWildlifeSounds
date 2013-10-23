@@ -32,6 +32,7 @@ public class Animallist extends Activity {
 	HashMap<String, Integer> sound, imageURL;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
+    ListView listViewDisplayer;
     List<String>animalHeader;
     HashMap<String, List<Animal>> animalChild;
     
@@ -45,14 +46,18 @@ public class Animallist extends Activity {
         intent = getIntent();
         mode=intent.getStringExtra("MODE");
        
-        setContentView(R.layout.activity_animallist);
-       
+        if(mode.equalsIgnoreCase("SEEINGIMPAIRED"))
+        setContentView(R.layout.activity_animallist_ver_b);
+        else
+        	setContentView(R.layout.activity_animallist);
         
         initializeVariables();
 
-        
+        if(mode.equalsIgnoreCase("SEEINGIMPAIRED")){
+        	
+        }
 
-        
+        else{
         expListView.setOnChildClickListener(new OnChildClickListener() {
      	   
             @Override
@@ -102,7 +107,7 @@ public class Animallist extends Activity {
         expListView.setAdapter(listAdapter);
  
       
-
+        }
         
     }
     private  Intent setUpIntent(Animal animalClk){
@@ -121,7 +126,7 @@ public class Animallist extends Activity {
     private void initializeVariables() {
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
-
+        listViewDisplayer=(ListView)findViewById(R.id.lv_display);
         animalHeader = new ArrayList<String>();
         animalChild = new HashMap<String, List<Animal>>();
         setUpAnimalData();	
