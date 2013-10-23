@@ -16,43 +16,19 @@ import android.media.SoundPool;
 
 
 
-public class Main extends Activity {
+public class Main extends Activity implements View.OnClickListener{
 
-	private Button learn, play;
+	private Button learn, play, mode;
 	private ViewSwitcher switcher;
+	
+	private String currentMode="NORMAL";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initializeVariable();   // call this method to initialize variables
-		
-		
-		learn.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			
-			
-			public void onClick(View v) {
-				
-				 //OurSoundPlayer.playSound(this, 4); //trying to play a sound! 
-				// TODO Auto-generated method stub
-				Intent animallist= new Intent("com.example.northamericanwildlifesounds.ANIMALLIST");
-				animallist.putExtra("MODE", "SEEINGIMPAIRED");
-				startActivity(animallist);
-			}
-		});
-	
-		play.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent game= new Intent("com.example.northamericanwildlifesounds.GAME");
-				startActivity(game);
-			}
-		});
-	
+
 	
 	}
 
@@ -74,12 +50,52 @@ public class Main extends Activity {
 	private void initializeVariable(){
 		
 		learn=(Button)findViewById(R.id.learnButton);
+		learn.setOnClickListener(this);
 		play=(Button)findViewById(R.id.playButton);
+		play.setOnClickListener(this);
+		mode=(Button)findViewById(R.id.b_mode);
+		mode.setOnClickListener(this);
+		mode.setText(currentMode +" MODE");
+		
 	
 	}
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
 		finish();
+	}
+
+
+
+
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.learnButton:
+			Intent animallist= new Intent("com.example.northamericanwildlifesounds.ANIMALLIST");
+			animallist.putExtra("MODE", currentMode);
+			startActivity(animallist);
+			break;
+		case R.id.playButton:
+			Intent game= new Intent("com.example.northamericanwildlifesounds.GAME");
+			startActivity(game);
+			break;
+		case R.id.b_mode:
+			if(currentMode.equalsIgnoreCase("ACCESSIBILITY")){
+				currentMode="NORMAL";
+				mode.setText(currentMode + " MODE");
+			}
+			else{
+				currentMode="ACCESSIBILITY";
+				mode.setText(currentMode + " MODE");
+			}
+			
+			break;
+		
+			
+		}
+			
 	}
 }

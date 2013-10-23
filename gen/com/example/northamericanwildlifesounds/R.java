@@ -29,6 +29,7 @@ public final class R {
          */
         public static final int campaign_textfontsize=0x7f060002;
         public static final int main_textfontsize=0x7f060003;
+        public static final int settings_textfontsize=0x7f060004;
     }
     public static final class drawable {
         public static final int bobcat=0x7f020000;
@@ -45,16 +46,17 @@ public final class R {
         public static final int turkey=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000e;
-        public static final int b_play=0x7f0a000d;
+        public static final int action_settings=0x7f0a000f;
+        public static final int b_mode=0x7f0a000a;
+        public static final int b_play=0x7f0a000e;
         public static final int elvAnimallist=0x7f0a0000;
-        public static final int imageView1=0x7f0a000c;
+        public static final int imageView1=0x7f0a000d;
         public static final int lblListHeader=0x7f0a0008;
         public static final int lblListItem=0x7f0a0009;
-        public static final int learnButton=0x7f0a000a;
+        public static final int learnButton=0x7f0a000b;
         public static final int linearLayout1=0x7f0a0005;
         public static final int lv_display=0x7f0a0001;
-        public static final int playButton=0x7f0a000b;
+        public static final int playButton=0x7f0a000c;
         public static final int textView2=0x7f0a0002;
         public static final int tvDISPLAYSAMPLE=0x7f0a0003;
         public static final int tvDISPLAYSAMPLE2=0x7f0a0004;

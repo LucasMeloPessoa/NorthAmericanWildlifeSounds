@@ -10,6 +10,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
@@ -49,17 +50,31 @@ public class Animallist extends Activity {
         intent = getIntent();
         mode=intent.getStringExtra("MODE");
        
-        if(mode.equalsIgnoreCase("SEEINGIMPAIRED"))
+        if(mode.equalsIgnoreCase("ACCESSIBILITY"))
         setContentView(R.layout.activity_animallist_ver_b);
         else
         	setContentView(R.layout.activity_animallist);
         
         initializeVariables();
 
-        if(mode.equalsIgnoreCase("SEEINGIMPAIRED")){
+        if(mode.equalsIgnoreCase("ACCESSIBILITY")){
     	    ListViewAdapter adapter = new ListViewAdapter(this,
     		        android.R.layout.simple_list_item_1, animalHeader);
     	    listViewDisplayer.setAdapter(adapter);
+    	    listViewDisplayer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+    	        @Override
+    	        public void onItemClick(AdapterView<?> parent, final View view,
+    	            int position, long id) {
+    	          final String item = (String) parent.getItemAtPosition(position);
+    	          Toast.makeText(getApplicationContext(),item +" Clicked!", Toast.LENGTH_SHORT).show();
+                  
+    	          
+    	          
+    	        }
+
+    	      });
+    	    
         }
 
         else{

@@ -6,14 +6,38 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="2" 
+    android:weightSum="10" 
     tools:context=".Main" >
 
+    
+
+    
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_centerVertical="true"
-            android:orientation="vertical" >
+            android:orientation="vertical" 
+            android:weightSum="8">
+           <LinearLayout
+           	 	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_centerVertical="true"
+            	android:orientation="horizontal"
+            	android:weightSum="2"
+            	android:background="#231f20"
+     			   >
+            
+       		 <Button
+       		     android:id="@+id/b_mode"
+       		     android:layout_width="match_parent"
+       		     android:layout_height="fill_parent"
+       		     android:background="#231f20"
+       		     android:gravity="center"
+       		     android:textColor="#ffffff"
+       		     android:textSize="@dimen/settings_textfontsize"
+       		     android:textStyle="bold" />
+               
+               </LinearLayout>
 
         <Button
             android:id="@+id/learnButton"
@@ -26,7 +50,7 @@
             android:textColor="#f6ee31"
             android:textSize="@dimen/main_textfontsize"
             android:textStyle="bold"
-            android:layout_weight="1" />
+            android:layout_weight="4" />
 
         <Button
             android:id="@+id/playButton"
@@ -38,7 +62,7 @@
             android:textColor="#0e76bd"
             android:textSize="@dimen/main_textfontsize"
             android:textStyle="bold"
-            android:layout_weight="1" />
+            android:layout_weight="4" />
         
     </LinearLayout>
 </RelativeLayout>
