@@ -15,6 +15,8 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.ListView;
+
 import android.widget.Toast;
 
 
@@ -103,9 +105,15 @@ public class Animallist extends Activity {
         });
         
    
+        if(mode.equalsIgnoreCase("SEEINGIMPAIRED")){
+        	    ListViewAdapter adapter = new ListViewAdapter(this,
+        		        android.R.layout.simple_list_item_1, animalHeader);
+        	    listViewDisplayer.setAdapter(adapter);
+        }
+        else{
         listAdapter = new ExpandableListAdapter(this, animalHeader, animalChild);
         expListView.setAdapter(listAdapter);
- 
+        }
       
         }
         
