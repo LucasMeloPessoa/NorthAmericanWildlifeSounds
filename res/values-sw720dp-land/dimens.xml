@@ -6,5 +6,6 @@
     -->
     <dimen name="activity_horizontal_margin">0dp</dimen>
     <dimen name="campaign_textfontsize">120dp</dimen>
+    <dimen name="main_textfontsize">180dp</dimen>
 
 </resources>
