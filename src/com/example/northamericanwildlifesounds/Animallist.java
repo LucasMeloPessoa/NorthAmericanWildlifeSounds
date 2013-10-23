@@ -57,7 +57,9 @@ public class Animallist extends Activity {
         initializeVariables();
 
         if(mode.equalsIgnoreCase("SEEINGIMPAIRED")){
-        	
+    	    ListViewAdapter adapter = new ListViewAdapter(this,
+    		        android.R.layout.simple_list_item_1, animalHeader);
+    	    listViewDisplayer.setAdapter(adapter);
         }
 
         else{
@@ -104,17 +106,11 @@ public class Animallist extends Activity {
                 return false;
             }
         });
-        
-   
-        if(mode.equalsIgnoreCase("SEEINGIMPAIRED")){
-        	    ListViewAdapter adapter = new ListViewAdapter(this,
-        		        android.R.layout.simple_list_item_1, animalHeader);
-        	    listViewDisplayer.setAdapter(adapter);
-        }
-        else{
+
+    
         listAdapter = new ExpandableListAdapter(this, animalHeader, animalChild);
         expListView.setAdapter(listAdapter);
-        }
+        
       
         }
         
