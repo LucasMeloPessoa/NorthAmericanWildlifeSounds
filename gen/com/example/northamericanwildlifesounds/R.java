@@ -28,6 +28,7 @@ public final class R {
     
          */
         public static final int campaign_textfontsize=0x7f060002;
+        public static final int main_textfontsize=0x7f060003;
     }
     public static final class drawable {
         public static final int bobcat=0x7f020000;
@@ -44,37 +45,40 @@ public final class R {
         public static final int turkey=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000d;
-        public static final int b_play=0x7f0a000c;
+        public static final int action_settings=0x7f0a000e;
+        public static final int b_play=0x7f0a000d;
         public static final int elvAnimallist=0x7f0a0000;
-        public static final int imageView1=0x7f0a000b;
-        public static final int lblListHeader=0x7f0a0007;
-        public static final int lblListItem=0x7f0a0008;
-        public static final int learnButton=0x7f0a0009;
-        public static final int linearLayout1=0x7f0a0004;
-        public static final int playButton=0x7f0a000a;
-        public static final int textView2=0x7f0a0001;
-        public static final int tvDISPLAYSAMPLE=0x7f0a0002;
-        public static final int tvDISPLAYSAMPLE2=0x7f0a0003;
-        public static final int tvLogoImage=0x7f0a0005;
-        public static final int tvLogoText=0x7f0a0006;
+        public static final int imageView1=0x7f0a000c;
+        public static final int lblListHeader=0x7f0a0008;
+        public static final int lblListItem=0x7f0a0009;
+        public static final int learnButton=0x7f0a000a;
+        public static final int linearLayout1=0x7f0a0005;
+        public static final int lv_display=0x7f0a0001;
+        public static final int playButton=0x7f0a000b;
+        public static final int textView2=0x7f0a0002;
+        public static final int tvDISPLAYSAMPLE=0x7f0a0003;
+        public static final int tvDISPLAYSAMPLE2=0x7f0a0004;
+        public static final int tvLogoImage=0x7f0a0006;
+        public static final int tvLogoText=0x7f0a0007;
     }
     public static final class layout {
         public static final int activity_animallist=0x7f030000;
-        public static final int activity_game=0x7f030001;
-        public static final int activity_intro=0x7f030002;
-        public static final int activity_list_group=0x7f030003;
-        public static final int activity_list_item=0x7f030004;
-        public static final int activity_main=0x7f030005;
-        public static final int activity_sound_display=0x7f030006;
+        public static final int activity_animallist_ver_b=0x7f030001;
+        public static final int activity_game=0x7f030002;
+        public static final int activity_intro=0x7f030003;
+        public static final int activity_list_group=0x7f030004;
+        public static final int activity_list_item=0x7f030005;
+        public static final int activity_main=0x7f030006;
+        public static final int activity_sound_display=0x7f030007;
     }
     public static final class menu {
         public static final int animal_list_sub=0x7f090000;
         public static final int animallist=0x7f090001;
         public static final int game=0x7f090002;
         public static final int intro=0x7f090003;
-        public static final int main=0x7f090004;
-        public static final int sound_display=0x7f090005;
+        public static final int list_view=0x7f090004;
+        public static final int main=0x7f090005;
+        public static final int sound_display=0x7f090006;
     }
     public static final class raw {
         public static final int bobcat=0x7f040000;
