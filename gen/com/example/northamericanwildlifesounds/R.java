@@ -102,6 +102,7 @@ public final class R {
         public static final int title_activity_animal_list_sub=0x7f07000a;
         public static final int title_activity_animallist=0x7f070008;
         public static final int title_activity_game=0x7f070009;
+        public static final int title_activity_list_view=0x7f07000c;
         public static final int title_activity_main=0x7f070007;
         public static final int title_activity_sound_display=0x7f07000b;
     }

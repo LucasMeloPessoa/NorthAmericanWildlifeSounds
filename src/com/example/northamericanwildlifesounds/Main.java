@@ -38,6 +38,7 @@ public class Main extends Activity {
 				 //OurSoundPlayer.playSound(this, 4); //trying to play a sound! 
 				// TODO Auto-generated method stub
 				Intent animallist= new Intent("com.example.northamericanwildlifesounds.ANIMALLIST");
+				animallist.putExtra("MODE", "SEEINGIMPAIRED");
 				startActivity(animallist);
 			}
 		});

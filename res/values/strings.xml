@@ -13,5 +13,6 @@
     <string name="title_activity_game">Game</string>
     <string name="title_activity_animal_list_sub">AnimalListSub</string>
     <string name="title_activity_sound_display">SoundDisplay</string>
+    <string name="title_activity_list_view">ListView</string>
 
 </resources>
