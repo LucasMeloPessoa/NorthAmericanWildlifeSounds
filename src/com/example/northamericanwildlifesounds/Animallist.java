@@ -29,15 +29,15 @@ public class Animallist extends Activity {
 
 	private ArrayList<Animal> list;										
 	private String[] animalCategory;
-	private Animal animalClk;
+	private Animal temp;
 	Intent intent;
-	String mode;
+	String mode,head_Clicked,currentScreenview;
 
 	HashMap<String, Integer> sound, imageURL;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     ListView listViewDisplayer;
-    List<String>animalHeader;
+    List<String>animalHeader, currentHeadChildren;
     HashMap<String, List<Animal>> animalChild;
     
     
@@ -58,19 +58,32 @@ public class Animallist extends Activity {
         initializeVariables();
 
         if(mode.equalsIgnoreCase("ACCESSIBILITY")){
-    	    ListViewAdapter adapter = new ListViewAdapter(this,
+    	    final ListViewAdapter adapter = new ListViewAdapter(this,
     		        android.R.layout.simple_list_item_1, animalHeader);
+    	    
+            
     	    listViewDisplayer.setAdapter(adapter);
     	    listViewDisplayer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-    	        @Override
     	        public void onItemClick(AdapterView<?> parent, final View view,
     	            int position, long id) {
-    	          final String item = (String) parent.getItemAtPosition(position);
-    	          Toast.makeText(getApplicationContext(),item +" Clicked!", Toast.LENGTH_SHORT).show();
-                  
-    	          
-    	          
+    	        	
+
+    	        	final String name;
+
+  	        		if(currentScreenview.equalsIgnoreCase("listview1")){
+  	        			
+  	        			name= (String) parent.getItemAtPosition(position);
+  	        			head_Clicked=name;
+  	        			Toast.makeText(getApplicationContext(),name +" Clicked!", Toast.LENGTH_SHORT).show();
+  	        			currentHeadChildren=getChildrenName(head_Clicked);
+  	        			
+  	        			adapter.changeData(currentHeadChildren);
+  	        			 listViewDisplayer.setAdapter(adapter);
+
+  	        			currentScreenview="listview2";
+  	        		}
+  	        	
+  	        	
     	        }
 
     	      });
@@ -88,12 +101,12 @@ public class Animallist extends Activity {
                 
                 
                 //THIS IS MANUALLY ADDED. IT IS SUPPOSELY TO BE ADDED at beginning
-                animalClk=animalChild.get( animalHeader.get(groupPosition)).get(childPosition);
-                if(animalClk.getNameTag()!=null){
-                	if(animalClk.getImageURL()== -1){animalClk.addImageURL(getImageURLFile(animalClk.getNameTag())); }
-                	if(animalClk.getSound()== -1){animalClk.addSound(getSoundFile(animalClk.getNameTag())); }
+                temp=animalChild.get( animalHeader.get(groupPosition)).get(childPosition);
+                if(temp.getNameTag()!=null){
+                	if(temp.getImageURL()== -1){temp.addImageURL(getImageURLFile(temp.getNameTag())); }
+                	if(temp.getSound()== -1){temp.addSound(getSoundFile(temp.getNameTag())); }
                 
-                Intent soundDP =setUpIntent(animalClk);
+                Intent soundDP =setUpIntent(temp);
                 startActivity(soundDP);
                 }
             
@@ -107,12 +120,12 @@ public class Animallist extends Activity {
         
                 if(animalChild.get(animalHeader.get(groupPosition)).size()==1){
        
-                    animalClk=animalChild.get(animalHeader.get(groupPosition)).get(0);
-                    if(animalClk.getNameTag()!=null){
-                    	if(animalClk.getSound()== -1){ animalClk.addSound(getSoundFile(animalClk.getName())); }
-                    	if(animalClk.getImageURL()== -1){animalClk.addImageURL(getImageURLFile(animalClk.getName())); }
+                    temp=animalChild.get(animalHeader.get(groupPosition)).get(0);
+                    if(temp.getNameTag()!=null){
+                    	if(temp.getSound()== -1){ temp.addSound(getSoundFile(temp.getName())); }
+                    	if(temp.getImageURL()== -1){temp.addImageURL(getImageURLFile(temp.getName())); }
                     }
-                    Intent soundDP = setUpIntent(animalClk);
+                    Intent soundDP = setUpIntent(temp);
                     startActivity(soundDP);
                     
                     
@@ -130,23 +143,60 @@ public class Animallist extends Activity {
         }
         
     }
-    private  Intent setUpIntent(Animal animalClk){
+    private  Intent setUpIntent(Animal data){
     	Intent soundDP;
     	soundDP= new Intent("com.example.northamericanwildlifesounds.SOUNDDISPLAY");
-        soundDP.putExtra("name", animalClk.getName());
-        soundDP.putExtra("sound", animalClk.getSound());
-        soundDP.putExtra("image", animalClk.getImageURL());
-        soundDP.putExtra("nameTag", animalClk.getNameTag());
+        soundDP.putExtra("name", data.getName());
+        soundDP.putExtra("sound", data.getSound());
+        soundDP.putExtra("image", data.getImageURL());
+        soundDP.putExtra("nameTag", data.getNameTag());
     	
     	return soundDP;
     }
     
     
-
+    private  List<String> getChildrenName(String headName){
+    	 List<String>data= new ArrayList<String>();
+    	int i;
+    	if(animalChild.get(headName)!=null){
+    		
+    	
+    		for(i=0; i<animalChild.get(headName).size();i++){
+    			data.add(animalChild.get(headName).get(i).getName());
+    		}
+    	}
+    	
+    	return data;
+    	
+    }
+    
+    private  Animal getAnimalData(String headName,String childName){
+    	Animal data= new Animal();
+    	int k;
+    	if(animalChild.get(headName)!=null){
+    		
+        	//search for a child that match with a given childName and stores that child data.
+    		for(k=0; k<animalChild.get(headName).size();k++){
+    			if(animalChild.get(headName).get(k).getName().equalsIgnoreCase(childName)){
+    				data=animalChild.get(headName).get(k);
+    				break;
+    			}
+    		}
+    		
+    	}
+    	
+    	
+    	
+   	return data;
+   	
+   }
+    
+    
     private void initializeVariables() {
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
         listViewDisplayer=(ListView)findViewById(R.id.lv_display);
+        currentScreenview="listview1";
         animalHeader = new ArrayList<String>();
         animalChild = new HashMap<String, List<Animal>>();
         setUpAnimalData();	

@@ -18,6 +18,20 @@ public class ListViewAdapter extends ArrayAdapter<String> {
       }
     }
 
+    
+    
+    
+    public void changeData(List<String> objects) {
+       HashMap<String, Integer> newdata = new HashMap<String, Integer>();
+          for (int i = 0; i < objects.size(); ++i) {
+            newdata.put(objects.get(i), i);
+          }
+          
+          mIdMap=newdata;
+          notifyDataSetChanged();
+        }
+    
+    
     @Override
     public long getItemId(int position) {
       String item = getItem(position);
