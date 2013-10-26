@@ -1,35 +1,65 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:orientation="vertical" 
+            android:weightSum="10" 
+            xmlns:android="http://schemas.android.com/apk/res/android">
+            
+       <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" 
+            android:background="#231f20"
+            android:layout_weight="9">
+            <Button
+       		     android:id="@+id/b_backGame"
+       		     android:layout_width="wrap_content"
+       		     android:layout_height="fill_parent"
+       		     android:gravity="center"
+       		     android:textColor="#ffffff"
+       		     android:text="Back"
+       		     android:textSize="20dp"
+       		     android:textStyle="bold" />
+            <Button
+       		     android:id="@+id/b_playGame"
+       		     android:layout_width="wrap_content"
+       		     android:layout_height="fill_parent"
+       		     android:gravity="center"
+       		     android:textColor="#ffffff"
+       		     android:text="PLAY SOUND"
+       		     android:textSize="@dimen/settings_textfontsize"
+       		     android:textStyle="bold" />
+                <Button
+       		     android:id="@+id/b_nextGame"
+       		     android:layout_width="wrap_content"
+       		     android:layout_height="fill_parent"
+       		     android:gravity="center"
+       		     android:textColor="#ffffff"
+       		     android:text="Next"
+       		     android:textSize="20dp"
+       		     android:textStyle="bold" />
+                </LinearLayout>
+<FrameLayout 
+   
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Game" >
+    android:layout_weight="1"
+    >
+    
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
-    <TextView
-        android:id="@+id/tvDISPLAYSAMPLE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="54dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvDISPLAYSAMPLE2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvDISPLAYSAMPLE"
-        android:layout_below="@+id/tvDISPLAYSAMPLE"
-        android:layout_marginTop="93dp"
-        android:text="TextView" />
-
-</RelativeLayout>
+       		 
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:verticalSpacing="0dp"
+        android:horizontalSpacing="0dp"
+        android:stretchMode="columnWidth"
+        android:numColumns="2" 
+    
+        />
+</FrameLayout>
+</LinearLayout>

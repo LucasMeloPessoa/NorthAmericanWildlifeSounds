@@ -38,7 +38,7 @@ public final class R {
         public static final int fox=0x7f020003;
         public static final int ic_launcher=0x7f020004;
         public static final int mainlogo=0x7f020005;
-        public static final int mountailion=0x7f020006;
+        public static final int mountainlion=0x7f020006;
         public static final int possum=0x7f020007;
         public static final int rabbit=0x7f020008;
         public static final int raccoon=0x7f020009;
@@ -46,23 +46,26 @@ public final class R {
         public static final int turkey=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0010;
-        public static final int b_mode=0x7f0a000b;
-        public static final int b_play=0x7f0a000f;
+        public static final int action_settings=0x7f0a0013;
+        public static final int b_backGame=0x7f0a0003;
+        public static final int b_mode=0x7f0a000c;
+        public static final int b_nextGame=0x7f0a0005;
+        public static final int b_play=0x7f0a0010;
+        public static final int b_playGame=0x7f0a0004;
         public static final int elvAnimallist=0x7f0a0000;
         public static final int filterViewSwitcher=0x7f0a0001;
-        public static final int imageView1=0x7f0a000e;
-        public static final int lblListHeader=0x7f0a0009;
-        public static final int lblListItem=0x7f0a000a;
-        public static final int learnButton=0x7f0a000c;
-        public static final int linearLayout1=0x7f0a0006;
+        public static final int gridview=0x7f0a0006;
+        public static final int imageView1=0x7f0a000f;
+        public static final int lblListHeader=0x7f0a000a;
+        public static final int lblListItem=0x7f0a000b;
+        public static final int learnButton=0x7f0a000d;
+        public static final int linearLayout1=0x7f0a0007;
         public static final int lv_display=0x7f0a0002;
-        public static final int playButton=0x7f0a000d;
-        public static final int textView2=0x7f0a0003;
-        public static final int tvDISPLAYSAMPLE=0x7f0a0004;
-        public static final int tvDISPLAYSAMPLE2=0x7f0a0005;
-        public static final int tvLogoImage=0x7f0a0007;
-        public static final int tvLogoText=0x7f0a0008;
+        public static final int picture=0x7f0a0011;
+        public static final int playButton=0x7f0a000e;
+        public static final int text=0x7f0a0012;
+        public static final int tvLogoImage=0x7f0a0008;
+        public static final int tvLogoText=0x7f0a0009;
     }
     public static final class layout {
         public static final int activity_animallist=0x7f030000;
@@ -73,6 +76,7 @@ public final class R {
         public static final int activity_list_item=0x7f030005;
         public static final int activity_main=0x7f030006;
         public static final int activity_sound_display=0x7f030007;
+        public static final int activity_square_image_view=0x7f030008;
     }
     public static final class menu {
         public static final int animal_list_sub=0x7f090000;
