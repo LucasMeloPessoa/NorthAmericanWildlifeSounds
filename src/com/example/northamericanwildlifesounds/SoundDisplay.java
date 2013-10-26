@@ -16,8 +16,7 @@ public class SoundDisplay extends Activity {
 	
 	private ImageView display;
 	private Button play;
-	Animal animal_file;
-	
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,32 +25,19 @@ public class SoundDisplay extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sound_display);
-		
 		initializeVariable();
-		display.setImageResource(animal_file.getImageURL());
-		
-		
-		
-		
-		// /*
+		display.setImageResource(Global.choosenAnimal.getImageURL());
 		play.setOnClickListener(new View.OnClickListener() {
-			MediaPlayer mPlayer = MediaPlayer.create(getBaseContext(), animal_file.getSound()); // In second parameter, you need to pass in your desired animal sound. 
-			
-			
+			MediaPlayer mPlayer = MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound()); // In second parameter, you need to pass in your desired animal sound. 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				//System.out.println("CHECKING IF IT WORKS");
-				
-				
+
 				if(v.getId() == R.id.b_play) {
 				//mPlayer = MediaPlayer.create(getBaseContext(), R.raw.mountainlion);
 				//mPlayer.prepare();
 				//mPlayer.seekTo(0);
 				mPlayer.start();
 				
-				//Intent game= new Intent("com.example.northamericanwildlifesounds.GAME");
-				//startActivity(game);
 				}
 			}
 		});
@@ -70,16 +56,7 @@ public class SoundDisplay extends Activity {
 	
 	
 	private void initializeVariable(){
-		
-		animal_file=new Animal();
-		Intent intent = getIntent();
-		animal_file.addName(intent.getStringExtra("name"));
-		animal_file.addImageURL(intent.getIntExtra("image", -1));
-		animal_file.addSound(intent.getIntExtra("sound", -1));
-		animal_file.addNameTag(intent.getStringExtra("nameTag"));
-		
 		display=(ImageView) findViewById(R.id.imageView1);
-		//play=(Button) findViewById(R.id.imDisplay);
 		play=(Button)findViewById(R.id.b_play);
 	
 	}

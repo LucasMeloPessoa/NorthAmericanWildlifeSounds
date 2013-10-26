@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import android.app.Activity;
-import android.app.ListActivity;
+
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,9 +13,7 @@ import android.widget.ListView;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.ExpandableListView.OnGroupCollapseListener;
-import android.widget.ExpandableListView.OnGroupExpandListener;
-import android.widget.ListView;
+
 
 import android.widget.Toast;
 
@@ -27,201 +23,135 @@ import com.example.northamericanwildlifesounds.R;
 
 public class Animallist extends Activity {
 
-	private ArrayList<Animal> list;										
+							
 	private String[] animalCategory;
-	private Animal temp;
-	Intent intent;
-	String mode,head_Clicked,currentScreenview;
+
+
+	String head_Clicked,currentScreenview;
 
 	HashMap<String, Integer> sound, imageURL;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     ListView listViewDisplayer;
-    List<String>animalHeader, currentHeadChildren;
-    HashMap<String, List<Animal>> animalChild;
-    
+    String classID_SD;
+String chicken;
     
     
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // preparing list data
-        intent = getIntent();
-        mode=intent.getStringExtra("MODE");
-       
-        if(mode.equalsIgnoreCase("ACCESSIBILITY"))
-        setContentView(R.layout.activity_animallist_ver_b);
+     
+    
+        if( Global.currentMode.equalsIgnoreCase("ACCESSIBILITY"))
+        	setContentView(R.layout.activity_animallist_ver_b);
         else
         	setContentView(R.layout.activity_animallist);
         
+        
         initializeVariables();
 
-        if(mode.equalsIgnoreCase("ACCESSIBILITY")){
-    	    final ListViewAdapter adapter = new ListViewAdapter(this,
-    		        android.R.layout.simple_list_item_1, animalHeader);
+        if( Global.currentMode.equalsIgnoreCase("ACCESSIBILITY")){
+    	     final ListViewAdapter adapter = new ListViewAdapter(this, android.R.layout.simple_list_item_1, Global.animalHeader);
     	    
             
     	    listViewDisplayer.setAdapter(adapter);
     	    listViewDisplayer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    	        public void onItemClick(AdapterView<?> parent, final View view,
-    	            int position, long id) {
+    	        public void onItemClick(AdapterView<?> parent, final View view,int position, long id) {
     	        	
 
-    	        	final String name;
-
-  	        		if(currentScreenview.equalsIgnoreCase("listview1")){
-  	        			
-  	        			name= (String) parent.getItemAtPosition(position);
-  	        			head_Clicked=name;
-  	        			Toast.makeText(getApplicationContext(),name +" Clicked!", Toast.LENGTH_SHORT).show();
-  	        			currentHeadChildren=getChildrenName(head_Clicked);
-  	        			
-  	        			adapter.changeData(currentHeadChildren);
-  	        			 listViewDisplayer.setAdapter(adapter);
-
-  	        			currentScreenview="listview2";
-  	        		}
-  	        	
-  	        	
+  	        			Global.selectedAnimal= (String) parent.getItemAtPosition(position);
+  	        			Global.selectedHeadAnimal=Global.selectedAnimal;
+  	        			//Toast.makeText(getApplicationContext(),Global.selectedAnimal +" Clicked!", Toast.LENGTH_SHORT).show();	
+  	        			if(Global.animalChild.get(Global.selectedHeadAnimal).size()<2){
+  	        				processData(position,0,classID_SD);
+  	        			}
+  	        			else{
+  	        		   Intent intent = new Intent("com.example.northamericanwildlifesounds.SUBLISTVIEW");
+  	        		   startActivity(intent);
+  	        			}
     	        }
-
-    	      });
-    	    
+    	      }); 
         }
 
         else{
-        expListView.setOnChildClickListener(new OnChildClickListener() {
+        	expListView.setOnChildClickListener(new OnChildClickListener() {
      	   
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                // TODO Auto-generated method stub
-                /*Toast.makeText(getApplicationContext(),"your_Text_here", Toast.LENGTH_SHORT).show();
-                */
-                
-                
-                //THIS IS MANUALLY ADDED. IT IS SUPPOSELY TO BE ADDED at beginning
-                temp=animalChild.get( animalHeader.get(groupPosition)).get(childPosition);
-                if(temp.getNameTag()!=null){
-                	if(temp.getImageURL()== -1){temp.addImageURL(getImageURLFile(temp.getNameTag())); }
-                	if(temp.getSound()== -1){temp.addSound(getSoundFile(temp.getNameTag())); }
-                
-                Intent soundDP =setUpIntent(temp);
-                startActivity(soundDP);
-                }
-            
-                return false;
-            }
-        });
+            	public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+         
+            		Global.selectedAnimal= (String) Global.animalChild.get(Global.animalHeader.get(groupPosition)).get(childPosition).getName();
+            		processData(groupPosition,childPosition,classID_SD);
+            		return false;
+            	}
+        	});
         
-        expListView.setOnGroupClickListener(new OnGroupClickListener() {
-            public boolean onGroupClick(ExpandableListView parent, View v,  int groupPosition, long id) {
-       
-        
-                if(animalChild.get(animalHeader.get(groupPosition)).size()==1){
-       
-                    temp=animalChild.get(animalHeader.get(groupPosition)).get(0);
-                    if(temp.getNameTag()!=null){
-                    	if(temp.getSound()== -1){ temp.addSound(getSoundFile(temp.getName())); }
-                    	if(temp.getImageURL()== -1){temp.addImageURL(getImageURLFile(temp.getName())); }
-                    }
-                    Intent soundDP = setUpIntent(temp);
-                    startActivity(soundDP);
-                    
-                    
-                }
-                
-                return false;
-            }
-        });
+        	expListView.setOnGroupClickListener(new OnGroupClickListener() {
+        		public boolean onGroupClick(ExpandableListView parent, View v,  int groupPosition, long id) {
+        			Global.selectedAnimal= (String) parent.getItemAtPosition(groupPosition);
+        			Global.selectedHeadAnimal=Global.selectedAnimal;
+        			if(Global.animalChild.get(Global.animalHeader.get(groupPosition)).size()==1){
+        				processData(groupPosition,0,classID_SD);
+        			}	
+        			return false;
+        		}
+        	});
 
     
-        listAdapter = new ExpandableListAdapter(this, animalHeader, animalChild);
+        listAdapter = new ExpandableListAdapter(this, Global.animalHeader, Global.animalChild);
         expListView.setAdapter(listAdapter);
         
       
         }
         
     }
-    private  Intent setUpIntent(Animal data){
-    	Intent soundDP;
-    	soundDP= new Intent("com.example.northamericanwildlifesounds.SOUNDDISPLAY");
-        soundDP.putExtra("name", data.getName());
-        soundDP.putExtra("sound", data.getSound());
-        soundDP.putExtra("image", data.getImageURL());
-        soundDP.putExtra("nameTag", data.getNameTag());
+
+    private  void processData(int groupPosition, int childPosition, String classID){
     	
-    	return soundDP;
-    }
-    
-    
-    private  List<String> getChildrenName(String headName){
-    	 List<String>data= new ArrayList<String>();
-    	int i;
-    	if(animalChild.get(headName)!=null){
-    		
-    	
-    		for(i=0; i<animalChild.get(headName).size();i++){
-    			data.add(animalChild.get(headName).get(i).getName());
-    		}
-    	}
-    	
-    	return data;
-    	
-    }
-    
-    private  Animal getAnimalData(String headName,String childName){
-    	Animal data= new Animal();
-    	int k;
-    	if(animalChild.get(headName)!=null){
-    		
-        	//search for a child that match with a given childName and stores that child data.
-    		for(k=0; k<animalChild.get(headName).size();k++){
-    			if(animalChild.get(headName).get(k).getName().equalsIgnoreCase(childName)){
-    				data=animalChild.get(headName).get(k);
-    				break;
-    			}
-    		}
-    		
-    	}
-    	
-    	
-    	
-   	return data;
+        Global.choosenAnimal=Global.animalChild.get( Global.animalHeader.get(groupPosition)).get(childPosition);
+            if( Global.choosenAnimal.getNameTag()!=null){
+            	if( Global.choosenAnimal.getImageURL()== -1){ Global.choosenAnimal.addImageURL(getImageURLFile( Global.choosenAnimal.getNameTag())); }
+            	if( Global.choosenAnimal.getSound()== -1){ Global.choosenAnimal.addSound(getSoundFile( Global.choosenAnimal.getNameTag())); }
+            }
+
+        Intent soundDP=new Intent(classID);
+        startActivity(soundDP);
    	
    }
     
     
     private void initializeVariables() {
         // get the listview
+    
         expListView = (ExpandableListView) findViewById(R.id.elvAnimallist);
         listViewDisplayer=(ListView)findViewById(R.id.lv_display);
         currentScreenview="listview1";
-        animalHeader = new ArrayList<String>();
-        animalChild = new HashMap<String, List<Animal>>();
+       // animalHeader = new ArrayList<String>();
+        //animalChild = new HashMap<String, List<Animal>>();
         setUpAnimalData();	
-        
-
+        chicken="chickenn";
+        classID_SD="com.example.northamericanwildlifesounds.SOUNDDISPLAY";
         
     }
     
-    
-    
-    
+
     
     private void setUpAnimalData(){    
+    	
+    	if(Global.animalHeader==null){
+    		Global.animalHeader= new ArrayList<String>();
+    	
         //INSERT MAIN ANIMAL HERE
         animalCategory=new String[]{ "Bobcat", "Coyote", "Deer", "Fox",
     			"Mountain Lion", "Possum", "Rabbit", "Raccoon", "Squirrel", 
-    			"Turkey" }; // "DUCK
+    			"Turkey"}; // "DUCK
         
         // Adding Animal Head data
         animalCategory=sortStringArray(animalCategory);	//to be sorted.
    		for(int i=0;i<animalCategory.length;i++){
-        animalHeader.add(animalCategory[i]);
+        Global.animalHeader.add(animalCategory[i]);
    		}
-
-   		
+   	
    	/** function Prototype
    	 * Animal Deer=new Animal(String DisplayName, String NameTag, int sound, int imageURL)
    	 * DisplayName is the name you want to display on the screen 
@@ -280,23 +210,23 @@ public class Animallist extends Activity {
    		turkey.add(new Animal("Turkey", "turkey", getSoundFile("turkey"), getImageURLFile("turkey")));
 
  
-        animalChild.put("Deer", deer); // Header, Child data
-        animalChild.put("Bobcat", bobcat);
-        animalChild.put("Coyote", coyote);
-        animalChild.put("Fox", fox);
-        animalChild.put("Mountain Lion", mountainlion);
-        animalChild.put("Possum", possum);
-        animalChild.put("Rabbit", rabbit);
-        animalChild.put("Raccoon", raccoon);
-        animalChild.put("Squirrel", squirrel);
-        animalChild.put("Turkey", turkey);
+        Global.animalChild.put("Deer", deer); // Header, Child data
+        Global.animalChild.put("Bobcat", bobcat);
+        Global.animalChild.put("Coyote", coyote);
+        Global.animalChild.put("Fox", fox);
+        Global.animalChild.put("Mountain Lion", mountainlion);
+        Global.animalChild.put("Possum", possum);
+        Global.animalChild.put("Rabbit", rabbit);
+        Global.animalChild.put("Raccoon", raccoon);
+        Global.animalChild.put("Squirrel", squirrel);
+        Global.animalChild.put("Turkey", turkey);
        
-        
+    	}
     }
 
     
     /**
-     * WARNING: Make sure you put a image file in res/drawable folder 
+     * WARNING:refering image file in res/drawable folder 
      * @param file
      * @return
      */
@@ -306,11 +236,8 @@ public class Animallist extends Activity {
 }
 
     
-    
-    
-    
     /**
-     * WARNING: Make sure you put a sound file in res/raw folder 
+     * WARNING:referring sound file must be in res/raw folder 
      * @param file
      * @return
      */
@@ -320,8 +247,7 @@ public class Animallist extends Activity {
     }
     
     
-    
-    
+ 
    /**
     * 
     * @param file to be sorted in alphabet letter

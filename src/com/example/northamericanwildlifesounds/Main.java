@@ -16,26 +16,17 @@ import android.media.SoundPool;
 
 
 
-public class Main extends Activity implements View.OnClickListener{
+public class Main extends Activity implements View.OnClickListener {
 
 	private Button learn, play, mode;
-	private ViewSwitcher switcher;
-	
-	private String currentMode="NORMAL";
 
-	@Override
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initializeVariable();   // call this method to initialize variables
-
-	
 	}
 
-
-	
-	
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -55,7 +46,7 @@ public class Main extends Activity implements View.OnClickListener{
 		play.setOnClickListener(this);
 		mode=(Button)findViewById(R.id.b_mode);
 		mode.setOnClickListener(this);
-		mode.setText(currentMode +" MODE");
+		mode.setText( Global.currentMode +" MODE");
 		
 	
 	}
@@ -75,7 +66,7 @@ public class Main extends Activity implements View.OnClickListener{
 		switch (v.getId()) {
 		case R.id.learnButton:
 			Intent animallist= new Intent("com.example.northamericanwildlifesounds.ANIMALLIST");
-			animallist.putExtra("MODE", currentMode);
+			animallist.putExtra("MODE",  Global.currentMode);
 			startActivity(animallist);
 			break;
 		case R.id.playButton:
@@ -83,13 +74,14 @@ public class Main extends Activity implements View.OnClickListener{
 			startActivity(game);
 			break;
 		case R.id.b_mode:
-			if(currentMode.equalsIgnoreCase("ACCESSIBILITY")){
-				currentMode="NORMAL";
-				mode.setText(currentMode + " MODE");
+			if( Global.currentMode.equalsIgnoreCase("ACCESSIBILITY")){
+				 Global.currentMode="NORMAL";
+				mode.setText( Global.currentMode + " MODE");
+			
 			}
 			else{
-				currentMode="ACCESSIBILITY";
-				mode.setText(currentMode + " MODE");
+				 Global.currentMode="ACCESSIBILITY";
+				mode.setText( Global.currentMode + " MODE");
 			}
 			
 			break;
