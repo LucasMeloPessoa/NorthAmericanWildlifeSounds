@@ -14,5 +14,9 @@
     <string name="title_activity_animal_list_sub">AnimalListSub</string>
     <string name="title_activity_sound_display">SoundDisplay</string>
     <string name="title_activity_list_view">ListView</string>
+    <string name="guessSound_str">Can you guess the sound?></string>
+    <string name="pass_str">Great Job! You did it!></string>
+    <string name="fail_str">Sorry. Please try again</string>
+    <string name="failer">FAILED!</string>
 
 </resources>

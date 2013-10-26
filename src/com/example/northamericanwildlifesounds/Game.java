@@ -29,9 +29,11 @@ public class Game extends Activity implements View.OnClickListener {
 	 private List<Animal> displayList;
 	 Button back,play,next;
 	 GridView gridView;
-	 int numOfHeadAnimals, i;
+	 TextView infoDisplay;
+	 int headCount,childrenCount,count, numOfImages;
 	 MediaPlayer mPlayer;
 	 GridViewAdapter gridViewadapter;
+	 int [] buffer;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
@@ -44,12 +46,21 @@ public class Game extends Activity implements View.OnClickListener {
 		gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, final View view,int position, long id) {
 	    
+	        	mPlayer.pause();
+	        	if(Global.choosenAnimal.getName().equalsIgnoreCase(displayList.get(position).getName())){
+	        	//Toast.makeText(getApplicationContext(),"GREAT JOB!", Toast.LENGTH_SHORT).show();	
+	        	infoDisplay.setText("Great Job! You did it!");
+	        
 	        	
-	        	Toast.makeText(getApplicationContext(),position+ " Clicked!", Toast.LENGTH_SHORT).show();	
-      			
+	        	}
+	        	else{
+	        		//Toast.makeText(getApplicationContext(),"Sorry, please try again!", Toast.LENGTH_SHORT).show();
+	        		infoDisplay.setText("Sorry. Try Again!");
+	        	}
+	        //	infoDisplay.setText("Can you guess the sound?");
         }
       }); 
-
+		mPlayer.start();
 		
 	}
 
@@ -69,37 +80,71 @@ public class Game extends Activity implements View.OnClickListener {
 
 	
 	public void generateRandomList(){
-		Random gen = new Random();
+	
 		//clear old data and insert new 4 animals'data
-		int childrenCount,headPosition,childPosition;
+		int []headPosition;
+		int []childPosition;
 		boolean copy=true;
 		displayList.clear();
-		for(i=0;i<4;i++){
-			headPosition=gen.nextInt(numOfHeadAnimals);
-			childrenCount=Global.animalChild.get(Global.animalHeader.get(headPosition)).size();
-			childPosition=gen.nextInt(childrenCount);
-			displayList.add(Global.animalChild.get(Global.animalHeader.get(headPosition)).get(childPosition));
+		headPosition=shuffleArray(headCount);
+		if(headPosition.length>=numOfImages){
+		for(int i=0;i<numOfImages;i++){
+			
+			childrenCount=Global.animalChild.get(Global.animalHeader.get(headPosition[i])).size();
+			childPosition=shuffleArray(childrenCount);
+			displayList.add(Global.animalChild.get(Global.animalHeader.get(headPosition[i])).get(childPosition[0]));
 			if(copy){
-				Global.choosenAnimal=Global.animalChild.get(Global.animalHeader.get(headPosition)).get(childPosition);
+				Global.choosenAnimal=Global.animalChild.get(Global.animalHeader.get(headPosition[i])).get(childPosition[0]);
 				mPlayer=MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound());
 				copy=false;
 			}
 		}
-		
+		}
+		else
+		{
+			Toast.makeText(getApplicationContext(),"ERROR: Game.java- animal number is less than numOfImages. Try add more animals or resize numofImage", Toast.LENGTH_SHORT).show();
+		}
 		Collections.shuffle(displayList);
 		
+	}
+	
+	public int[] shuffleArray(int size){
+		
+		buffer=null;	//clear memory
+		buffer=new int[size];
+	    Random rnd = new Random();
+	    int k;
+	    for (k =1; k<=size;k++)
+	    {
+	    	buffer[k-1]=k-1;
+		      int index = rnd.nextInt(k);
+		      int a = buffer[index];
+		      buffer[index] = buffer[k-1];
+		      buffer[k-1] = a;
+
+	    }
+	    if(count>=childrenCount){
+	    	count=0;
+	    }
+	    count++;
+		return buffer;
 	}
 	
 	public void initalizeVariables(){
 		
 		back=(Button)findViewById(R.id.b_backGame);
+			back.setOnClickListener(this);
 		play=(Button)findViewById(R.id.b_playGame);
+			play.setOnClickListener(this);
 		next=(Button)findViewById(R.id.b_nextGame);
+			next.setOnClickListener(this);
+		infoDisplay=(TextView)findViewById(R.id.tv_displayGame);
+			infoDisplay.setText("Can you guess the sound?");
 		gridView = (GridView)findViewById(R.id.gridview);
-		numOfHeadAnimals=Global.animalHeader.size();
+		headCount=Global.animalHeader.size();
 		displayList= new ArrayList<Animal>();
-
-		
+		numOfImages=4;
+		count=0;
 	
 	}
 
@@ -112,15 +157,18 @@ public class Game extends Activity implements View.OnClickListener {
 			Intent intent= new Intent("com.example.northamericanwildlifesounds.MAINACTIVITY");
 			startActivity(intent);
 			break;
-		case R.id.playButton:
+		case R.id.b_playGame:
+			infoDisplay.setText("Can you guess the sound?");
 			mPlayer.seekTo(0);
 			mPlayer.start();
 			break;
 		case R.id.b_nextGame:
 			mPlayer.stop();
+			infoDisplay.setText("Can you guess the sound?");
 			generateRandomList();
 			gridViewadapter.notifyDataSetChanged();
-			gridView.invalidateViews();
+			//gridView.invalidateViews();
+			v.setAlpha(1);
 			break;
 		
 			

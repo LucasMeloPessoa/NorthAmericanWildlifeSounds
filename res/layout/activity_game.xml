@@ -13,15 +13,17 @@
             android:layout_centerVertical="true"
             android:orientation="horizontal" 
             android:background="#231f20"
-            android:layout_weight="9">
+            android:gravity="center_horizontal"
+            android:layout_weight="4.4">
             <Button
        		     android:id="@+id/b_backGame"
        		     android:layout_width="wrap_content"
        		     android:layout_height="fill_parent"
        		     android:gravity="center"
+  				
        		     android:textColor="#ffffff"
        		     android:text="Back"
-       		     android:textSize="20dp"
+       		     android:textSize="15dp"
        		     android:textStyle="bold" />
             <Button
        		     android:id="@+id/b_playGame"
@@ -30,18 +32,44 @@
        		     android:gravity="center"
        		     android:textColor="#ffffff"
        		     android:text="PLAY SOUND"
+       		  
        		     android:textSize="@dimen/settings_textfontsize"
        		     android:textStyle="bold" />
-                <Button
+            <Button
        		     android:id="@+id/b_nextGame"
        		     android:layout_width="wrap_content"
        		     android:layout_height="fill_parent"
        		     android:gravity="center"
        		     android:textColor="#ffffff"
        		     android:text="Next"
-       		     android:textSize="20dp"
+       		     android:textSize="15dp"
+       			
        		     android:textStyle="bold" />
+
+                
                 </LinearLayout>
+         <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:orientation="vertical" 
+            android:gravity="center_horizontal"
+            android:background="#231f20"
+            android:layout_weight="4.4">
+
+                  <TextView
+                      android:id="@+id/tv_displayGame"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:gravity="center"
+                      
+                      android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:textColor="#FFFFFF"
+                      android:textSize="25dp" />
+                  
+                  </LinearLayout>     
+       
+       
 <FrameLayout 
    
     android:layout_width="match_parent"
