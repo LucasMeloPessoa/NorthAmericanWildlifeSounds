@@ -8,16 +8,18 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 
-public class SoundDisplay extends Activity {
+public class SoundDisplay extends Activity implements View.OnClickListener{
 	
 	private ImageView display;
-	private Button play;
-
-
+	private Button back, play;
+	private TextView tview;
+	private MediaPlayer mPlayer;
+	Intent intent;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -25,26 +27,11 @@ public class SoundDisplay extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sound_display);
+		
 		initializeVariable();
 		display.setImageResource(Global.choosenAnimal.getImageURL());
-		play.setOnClickListener(new View.OnClickListener() {
-			MediaPlayer mPlayer = MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound()); // In second parameter, you need to pass in your desired animal sound. 
-			@Override
-			public void onClick(View v) {
-
-				if(v.getId() == R.id.b_play) {
-				//mPlayer = MediaPlayer.create(getBaseContext(), R.raw.mountainlion);
-				//mPlayer.prepare();
-				//mPlayer.seekTo(0);
-				mPlayer.start();
-				
-				}
-			}
-		});
-		// */
 		
 	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		
@@ -58,7 +45,37 @@ public class SoundDisplay extends Activity {
 	private void initializeVariable(){
 		display=(ImageView) findViewById(R.id.imageView1);
 		play=(Button)findViewById(R.id.b_play);
-	
+			play.setOnClickListener(this); 
+		back=(Button)findViewById(R.id.b_backSoundDisplay);
+			back.setOnClickListener(this); 
+		tview=(TextView)findViewById(R.id.tv_SoundPlayer);
+		mPlayer = MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound()); // In second parameter, you need to pass in your desired animal sound. 
+		
+		if(Global.currentMode.equalsIgnoreCase("NORMAL")){
+			intent= new Intent("com.example.northamericanwildlifesounds.ANIMALLIST");
+		}
+		else{intent = new Intent("com.example.northamericanwildlifesounds.SUBLISTVIEW");}
+		tview.setText(Global.choosenAnimal.getName());
+		
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
+		switch (v.getId()) {
+		case R.id.b_backSoundDisplay:
+			mPlayer.pause();
+			startActivity(intent);
+			break;
+		case R.id.b_play:
+			mPlayer.seekTo(0);
+			mPlayer.start();
+			break;
+			
+		}
+		
 	}
 
 }

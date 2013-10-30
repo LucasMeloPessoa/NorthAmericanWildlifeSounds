@@ -26,6 +26,7 @@
                 android:id="@+id/tvLogoImage"
                 android:layout_width="74dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:src="@drawable/mainlogo" />
 
             <TextView

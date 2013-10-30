@@ -29,7 +29,7 @@ public class Game extends Activity implements View.OnClickListener {
 	 private List<Animal> displayList;
 	 Button back,play,next;
 	 GridView gridView;
-	 TextView infoDisplay;
+	 TextView infoDisplay, score;
 	 int headCount,childrenCount,count, numOfImages;
 	 MediaPlayer mPlayer;
 	 GridViewAdapter gridViewadapter;
@@ -49,13 +49,34 @@ public class Game extends Activity implements View.OnClickListener {
 	        	mPlayer.pause();
 	        	if(Global.choosenAnimal.getName().equalsIgnoreCase(displayList.get(position).getName())){
 	        	//Toast.makeText(getApplicationContext(),"GREAT JOB!", Toast.LENGTH_SHORT).show();	
-	        	infoDisplay.setText("Great Job! You did it!");
-	        
+	        		infoDisplay.setText("Great Job! You did it!");
+	        		
+	        		try {
+	        			infoDisplay.setText("Great Job! You did it!");
+	        		    Thread.sleep(2000);
+	        		} catch (InterruptedException e) {
+	        		    e.printStackTrace();
+	        		}
+	        		
+		        	Global.Score+=100;
+		        	score.setText("SCORE: "+Global.Score);
+					mPlayer.stop();
+					infoDisplay.setText("Can you guess the sound?");
+					generateRandomList();
+					gridViewadapter.notifyDataSetChanged();
+					//gridView.invalidateViews();
+					view.setAlpha(1);
+			
+	        		
+	        	
+
 	        	
 	        	}
 	        	else{
 	        		//Toast.makeText(getApplicationContext(),"Sorry, please try again!", Toast.LENGTH_SHORT).show();
 	        		infoDisplay.setText("Sorry. Try Again!");
+		        	Global.Score-=25;
+		        	score.setText("SCORE: "+Global.Score);
 	        	}
 	        //	infoDisplay.setText("Can you guess the sound?");
         }
@@ -140,6 +161,8 @@ public class Game extends Activity implements View.OnClickListener {
 			next.setOnClickListener(this);
 		infoDisplay=(TextView)findViewById(R.id.tv_displayGame);
 			infoDisplay.setText("Can you guess the sound?");
+		score=(TextView)findViewById(R.id.tv_score);
+			score.setText("SCORE: "+Global.Score);
 		gridView = (GridView)findViewById(R.id.gridview);
 		headCount=Global.animalHeader.size();
 		displayList= new ArrayList<Animal>();
