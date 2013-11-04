@@ -51,17 +51,11 @@ public class Game extends Activity implements View.OnClickListener {
 	        	//Toast.makeText(getApplicationContext(),"GREAT JOB!", Toast.LENGTH_SHORT).show();	
 	        		infoDisplay.setText("Great Job! You did it!");
 	        		
-	        		try {
-	        			infoDisplay.setText("Great Job! You did it!");
-	        		    Thread.sleep(2000);
-	        		} catch (InterruptedException e) {
-	        		    e.printStackTrace();
-	        		}
 	        		
 		        	Global.Score+=100;
 		        	score.setText("SCORE: "+Global.Score);
 					mPlayer.stop();
-					infoDisplay.setText("Can you guess the sound?");
+		
 					generateRandomList();
 					gridViewadapter.notifyDataSetChanged();
 					//gridView.invalidateViews();
@@ -96,6 +90,7 @@ public class Game extends Activity implements View.OnClickListener {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
+		mPlayer.stop();
 		finish();
 	}
 

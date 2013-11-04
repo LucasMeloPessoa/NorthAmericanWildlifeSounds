@@ -13,32 +13,26 @@ import android.widget.TextView;
 
 public class GridViewAdapter extends BaseAdapter {
 
-    private List<Animal> items;
+    private List<Animal> animals;
     private LayoutInflater inflater;
 
     public GridViewAdapter(Context context, List<Animal> data) {
         inflater = LayoutInflater.from(context);
-
-        items=data;
-        
+        animals=data;
         
     }
 
-    @Override
     public int getCount() {
-        return items.size();
+        return animals.size();
     }
 
-    @Override
     public Object getItem(int i) {
-        return items.get(i);
+        return animals.get(i);
   
     }
 
-    @Override
     public long getItemId(int i) {
-      //  return items.get(i).drawableId;
-    	return items.get(i).getImageURL();
+    	return animals.get(i).getImageURL();
     }
 
     @Override
@@ -56,10 +50,9 @@ public class GridViewAdapter extends BaseAdapter {
         picture = (ImageView)v.getTag(R.id.picture);
         name = (TextView)v.getTag(R.id.text);
 
-       // Item item = (Item)getItem(i);
-        Animal item=(Animal)getItem(i);
-        picture.setImageResource(item.getImageURL());
-        name.setText(item.getName());
+        Animal animal=(Animal)getItem(i);
+        picture.setImageResource(animal.getImageURL());
+        name.setText(animal.getName());
 
         return v;
     }
