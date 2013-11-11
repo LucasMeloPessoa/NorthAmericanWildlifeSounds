@@ -20,6 +20,8 @@ public class SoundDisplay extends Activity implements View.OnClickListener{
 	private TextView tview;
 	private MediaPlayer mPlayer;
 	Intent intent;
+	private int buttonState;	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -46,8 +48,8 @@ public class SoundDisplay extends Activity implements View.OnClickListener{
 		display=(ImageView) findViewById(R.id.imageView1);
 		play=(Button)findViewById(R.id.b_play);
 			play.setOnClickListener(this); 
-		back=(Button)findViewById(R.id.b_backSoundDisplay);
-			back.setOnClickListener(this); 
+		//back=(Button)findViewById(R.id.b_backSoundDisplay);
+			//back.setOnClickListener(this); 
 		tview=(TextView)findViewById(R.id.tv_SoundPlayer);
 		mPlayer = MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound()); // In second parameter, you need to pass in your desired animal sound. 
 		
@@ -72,11 +74,14 @@ public class SoundDisplay extends Activity implements View.OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
+		
 		switch (v.getId()) {
+		/*
 		case R.id.b_backSoundDisplay:
 			mPlayer.pause();
 			startActivity(intent);
 			break;
+			*/
 		case R.id.b_play:
 			mPlayer.seekTo(0);
 			mPlayer.start();
@@ -84,6 +89,11 @@ public class SoundDisplay extends Activity implements View.OnClickListener{
 			
 		}
 		
+	}
+	
+	/** Called when the user touches the button */
+	public void sendMessage(View view) {
+	    	play.setBackgroundColor(0);
 	}
 
 }

@@ -46,28 +46,27 @@ public final class R {
         public static final int turkey=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0017;
+        public static final int action_settings=0x7f0a0016;
         public static final int b_backGame=0x7f0a0003;
-        public static final int b_backSoundDisplay=0x7f0a0011;
         public static final int b_mode=0x7f0a000e;
         public static final int b_nextGame=0x7f0a0005;
-        public static final int b_play=0x7f0a0014;
+        public static final int b_play=0x7f0a0013;
         public static final int b_playGame=0x7f0a0004;
         public static final int elvAnimallist=0x7f0a0000;
         public static final int filterViewSwitcher=0x7f0a0001;
         public static final int gridview=0x7f0a0007;
-        public static final int imageView1=0x7f0a0013;
+        public static final int imageView1=0x7f0a0012;
         public static final int lblListHeader=0x7f0a000c;
         public static final int lblListItem=0x7f0a000d;
         public static final int learnButton=0x7f0a000f;
         public static final int linearLayout1=0x7f0a0009;
         public static final int lv_display=0x7f0a0002;
-        public static final int picture=0x7f0a0015;
+        public static final int picture=0x7f0a0014;
         public static final int playButton=0x7f0a0010;
-        public static final int text=0x7f0a0016;
+        public static final int text=0x7f0a0015;
         public static final int tvLogoImage=0x7f0a000a;
         public static final int tvLogoText=0x7f0a000b;
-        public static final int tv_SoundPlayer=0x7f0a0012;
+        public static final int tv_SoundPlayer=0x7f0a0011;
         public static final int tv_displayGame=0x7f0a0006;
         public static final int tv_score=0x7f0a0008;
     }
