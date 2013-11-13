@@ -14,6 +14,7 @@ import java.util.Random;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -44,7 +45,8 @@ public class Game extends Activity implements View.OnClickListener {
 		gridViewadapter=new GridViewAdapter(this,displayList);
 		 gridView.setAdapter(gridViewadapter);
 		gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-	        public void onItemClick(AdapterView<?> parent, final View view,int position, long id) {
+	        @SuppressLint("NewApi")
+			public void onItemClick(AdapterView<?> parent, final View view,int position, long id) {
 	    
 	        	mPlayer.pause();
 	        	if(Global.choosenAnimal.getName().equalsIgnoreCase(displayList.get(position).getName())){
@@ -166,14 +168,14 @@ public class Game extends Activity implements View.OnClickListener {
 	
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public void onClick(View v) {
 	
 		switch (v.getId()) {
 		case R.id.b_backGame:
 			mPlayer.stop();
-			Intent intent= new Intent("com.example.northamericanwildlifesounds.MAINACTIVITY");
-			startActivity(intent);
+			super.onBackPressed();
 			break;
 		case R.id.b_playGame:
 			infoDisplay.setText("Can you guess the sound?");
