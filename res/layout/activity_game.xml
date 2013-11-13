@@ -24,7 +24,7 @@
   				
        		     android:textColor="#ffffff"
        		     android:text="Back"
-       		     android:textSize="15dp"
+       		     android:textSize="@dimen/settings_smaller_textfontsize"
        		     android:textStyle="bold" />
             <Button
        		     android:id="@+id/b_playGame"
@@ -43,7 +43,7 @@
        		     android:gravity="center"
        		     android:textColor="#ffffff"
        		     android:text="Next"
-       		     android:textSize="15dp"
+       		     android:textSize="@dimen/settings_smaller_textfontsize"
        			
        		     android:textStyle="bold" />
 

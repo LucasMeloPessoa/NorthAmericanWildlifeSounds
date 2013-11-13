@@ -29,6 +29,7 @@ public final class R {
          */
         public static final int campaign_textfontsize=0x7f060002;
         public static final int main_textfontsize=0x7f060003;
+        public static final int settings_smaller_textfontsize=0x7f060005;
         public static final int settings_textfontsize=0x7f060004;
     }
     public static final class drawable {

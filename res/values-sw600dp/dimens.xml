@@ -6,5 +6,7 @@
     -->
     <dimen name="campaign_textfontsize">100dp</dimen>
     <dimen name="main_textfontsize">120dp</dimen>
+    	<dimen name="settings_textfontsize">55dp</dimen>
+	<dimen name="settings_smaller_textfontsize">40dp</dimen>
 
 </resources>
