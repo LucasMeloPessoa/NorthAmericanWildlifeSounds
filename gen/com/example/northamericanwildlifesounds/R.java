@@ -31,6 +31,7 @@ public final class R {
         public static final int main_textfontsize=0x7f060003;
         public static final int settings_smaller_textfontsize=0x7f060005;
         public static final int settings_textfontsize=0x7f060004;
+        public static final int sound_textfontsize=0x7f060006;
     }
     public static final class drawable {
         public static final int bobcat=0x7f020000;

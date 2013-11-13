@@ -9,5 +9,6 @@
     <dimen name="main_textfontsize">190dp</dimen>
         <dimen name="settings_textfontsize">85dp</dimen>
     <dimen name="settings_smaller_textfontsize">80dp</dimen>
+    <dimen name="sound_textfontsize">1000dp</dimen>
 
 </resources>

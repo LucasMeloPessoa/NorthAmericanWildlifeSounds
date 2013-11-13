@@ -34,7 +34,8 @@
                 android:gravity="center"
                 android:text="Animal Name"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/sound_textfontsize" />
                 
                 </LinearLayout>
         
