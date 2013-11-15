@@ -11,7 +11,7 @@
     tools:context=".SoundDisplay" >
         
     <LinearLayout
-        	android:background="#000000"
+        	android:background="#231f20"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_centerVertical="true"
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 
                 android:layout_gravity="center_horizontal"
-                android:background="#000000"
+                android:background="#231f20"
                 android:orientation="horizontal"
                 android:weightSum="2" >
 
@@ -50,7 +50,7 @@
         android:maxWidth="@dimen/activity_horizontal_margin"
         android:src="@drawable/bobcat"
         android:layout_weight="15"
-        android:background="#000000"
+        android:background="#231f20"
          />
 
     <Button
@@ -58,10 +58,10 @@
         android:layout_width="fill_parent"
         android:layout_height="0px"
         android:gravity="center"
-        android:textColor="#000000"
         android:textSize="@dimen/campaign_textfontsize"
         android:textStyle="bold"
-        android:text="PLAY"
+        android:textColor="#ffffff"
+        android:text="PLAY SOUND"
         android:layout_weight="3" />
         <!--android:background="#0e76bd"  This was removed to have blinking-->
     
