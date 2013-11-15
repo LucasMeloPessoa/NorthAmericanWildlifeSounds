@@ -58,12 +58,27 @@
         android:layout_width="fill_parent"
         android:layout_height="0px"
         android:gravity="center"
-        android:layout_below="@+id/imageView1"
-        android:background="#0e76bd"
-        android:textColor="#f6ee31"
+        android:textColor="#000000"
         android:textSize="@dimen/campaign_textfontsize"
         android:textStyle="bold"
         android:text="PLAY"
         android:layout_weight="3" />
+        <!--android:background="#0e76bd"  This was removed to have blinking-->
+    
+    
+    
+    <!--             <Button
+       		     android:id="@+id/b_playGame"
+       		     android:layout_width="wrap_content"
+       		     android:layout_height="fill_parent"
+       		     android:gravity="center"
+       		     android:textColor="#ffffff"
+       		     android:text="PLAY SOUND"
+       		  
+       		     android:textSize="@dimen/settings_textfontsize"
+       		     android:textStyle="bold" /> -->
+    
+    
+    
 	</LinearLayout>
 </RelativeLayout>
