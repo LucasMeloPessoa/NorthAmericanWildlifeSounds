@@ -80,13 +80,13 @@ public class Main extends Activity implements View.OnClickListener {
 			 * **/
 
 			List<Animal> bobcat = new ArrayList<Animal>();
-			bobcat.add(new Animal("Bobcat", "bobcat", getSoundFile("bobcat"),
+			bobcat.add(new Animal("Bobcat Snarling", "bobcat", getSoundFile("bobcat"),
 					getImageURLFile("bobcat")));
-			bobcat.add(new Animal("Bobcat1", "bobcat", getSoundFile("bobcat1"),
+			bobcat.add(new Animal("Bobcat Grumbling", "bobcat", getSoundFile("bobcat1"),
 					getImageURLFile("bobcat")));
-			bobcat.add(new Animal("Bobcat2", "bobcat", getSoundFile("bobcat2"),
+			bobcat.add(new Animal("Bobcat Grunting", "bobcat", getSoundFile("bobcat2"),
 					getImageURLFile("bobcat")));
-			bobcat.add(new Animal("Bobcat3", "bobcat", getSoundFile("bobcat3"),
+			bobcat.add(new Animal("Bobcat Roaring", "bobcat", getSoundFile("bobcat3"),
 					getImageURLFile("bobcat")));
 			// bobcat.add(new Animal("Bobcat Growl", getSoundFile("bobcat1"),
 			// getImageURLFile("bobcat")));
@@ -96,15 +96,13 @@ public class Main extends Activity implements View.OnClickListener {
 			// getImageURLFile("bobcat")));
 
 			List<Animal> coyote = new ArrayList<Animal>();
-			coyote.add(new Animal("Coyote", "coyote", getSoundFile("coyote"),
+			coyote.add(new Animal("Coyote Howling", "coyote", getSoundFile("coyote"),
 					getImageURLFile("coyote")));
 			// coyote.add(new Animal("Coyote", getSoundFile("coyote"),
 			// getImageURLFile("coyote")));
 
 			List<Animal> deer = new ArrayList<Animal>();
-			deer.add(new Animal("Deer", "deer", getSoundFile("deer"),
-					getImageURLFile("deer")));
-			deer.add(new Animal("Deer", "deer", getSoundFile("deer"),
+			deer.add(new Animal("Deer Yelling", "deer", getSoundFile("deer"),
 					getImageURLFile("deer")));
 			// deer.add(new Animal("Doe Grunt", getSoundFile("deer"),
 			// getImageURLFile("buck_grunt")));
@@ -124,34 +122,34 @@ public class Main extends Activity implements View.OnClickListener {
 			 */
 
 			List<Animal> fox = new ArrayList<Animal>();
-			fox.add(new Animal("Fox", "fox", getSoundFile("fox"),
+			fox.add(new Animal("Fox Crying", "fox", getSoundFile("fox"),
 					getImageURLFile("fox")));
 			// fox.add(new Animal("Fox", getSoundFile("fox"),
 			// getImageURLFile("fox")));
 
 			List<Animal> mountainlion = new ArrayList<Animal>();
-			mountainlion.add(new Animal("Mountain Lion", "mountainlion",
+			mountainlion.add(new Animal("Mountain Lion Roaring", "mountainlion",
 					getSoundFile("mountainlion"),
 					getImageURLFile("mountainlion")));
 
 			List<Animal> possum = new ArrayList<Animal>();
-			possum.add(new Animal("Possum", "possum", getSoundFile("possum"),
+			possum.add(new Animal("Possum Snarling", "possum", getSoundFile("possum"),
 					getImageURLFile("possum")));
 
 			List<Animal> rabbit = new ArrayList<Animal>();
-			rabbit.add(new Animal("Rabbit", "rabbit", getSoundFile("rabbit"),
+			rabbit.add(new Animal("Rabbit Panting", "rabbit", getSoundFile("rabbit"),
 					getImageURLFile("rabbit")));
 
 			List<Animal> raccoon = new ArrayList<Animal>();
-			raccoon.add(new Animal("Raccoon", "raccoon",
+			raccoon.add(new Animal("Raccoon Calling", "raccoon",
 					getSoundFile("raccoon"), getImageURLFile("raccoon")));
 
 			List<Animal> squirrel = new ArrayList<Animal>();
-			squirrel.add(new Animal("Squirrel", "squirrel",
+			squirrel.add(new Animal("Squirrel Squeaking", "squirrel",
 					getSoundFile("squirrel"), getImageURLFile("squirrel")));
 
 			List<Animal> turkey = new ArrayList<Animal>();
-			turkey.add(new Animal("Turkey", "turkey", getSoundFile("turkey"),
+			turkey.add(new Animal("Turkey Calling", "turkey", getSoundFile("turkey"),
 					getImageURLFile("turkey")));
 
 			Global.animalChild.put("Deer", deer); // Header, Child data
