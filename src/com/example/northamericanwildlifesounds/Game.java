@@ -35,7 +35,12 @@ public class Game extends Activity implements View.OnClickListener {
 	 MediaPlayer mPlayer;
 	 GridViewAdapter gridViewadapter;
 	 int [] buffer;
+	 
+	 
 	protected void onCreate(Bundle savedInstanceState) {
+		if(Global.stock <= 0) { // so stock 3 when first on.
+			Global.stock = 3;
+		}
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
 			initalizeVariables();
@@ -56,6 +61,7 @@ public class Game extends Activity implements View.OnClickListener {
 	        		
 		        	Global.score+=10;
 		        	score.setText("SCORE: "+Global.score);
+		        	stock.setText("    STOCK: "+Global.stock);
 					mPlayer.stop();
 		
 					generateRandomList();
@@ -180,7 +186,7 @@ public class Game extends Activity implements View.OnClickListener {
 		score=(TextView)findViewById(R.id.tv_score);
 		stock=(TextView)findViewById(R.id.tv_stock);
 	    score.setText("SCORE: "+Global.score);
-	    stock.setText("    STOCK: "+Global.score);
+	    stock.setText("    STOCK: "+Global.stock);
 		gridView = (GridView)findViewById(R.id.gridview);
 		headCount=Global.animalHeader.size();
 		displayList= new ArrayList<Animal>();
@@ -219,6 +225,7 @@ public class Game extends Activity implements View.OnClickListener {
 			//gridView.invalidateViews();
 			v.setAlpha(1);
 			Global.score-=10;
+			score.setText("SCORE: "+Global.score);
         	//score.setText("SCORE: "+Global.score);
         	if(Global.score < 0) {
         		//infoDisplay.setText("Game Over!");
