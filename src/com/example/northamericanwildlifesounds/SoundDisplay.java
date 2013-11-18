@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -31,6 +32,7 @@ public class SoundDisplay extends Activity implements View.OnClickListener{
 		setContentView(R.layout.activity_sound_display);
 		
 		initializeVariable();
+
 		display.setImageResource(Global.choosenAnimal.getImageURL());
 		
 	}
