@@ -79,13 +79,12 @@ public class Animallist extends Activity {
 			});
 
 			expListView.setOnGroupClickListener(new OnGroupClickListener() {
-				public boolean onGroupClick(ExpandableListView parent, View v,
-						int groupPosition, long id) {
-					Global.selectedAnimal = (String) parent
-							.getItemAtPosition(groupPosition);
+				public boolean onGroupClick(ExpandableListView parent, View v,int groupPosition, long id) {
+				//	Global.selectedAnimal = (String) parent.getItemAtPosition(groupPosition);
+					Global.selectedAnimal=(String)Global.animalHeader.get(groupPosition);
 					Global.selectedHeadAnimal = Global.selectedAnimal;
-					if (Global.animalChild.get(
-							Global.animalHeader.get(groupPosition)).size() == 1) {
+					
+					if (Global.animalChild.get(Global.animalHeader.get(groupPosition)).size() == 1) {
 						processData(groupPosition, 0, classID_SD);
 					}
 					return false;
