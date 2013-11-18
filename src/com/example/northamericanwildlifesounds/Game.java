@@ -30,7 +30,7 @@ public class Game extends Activity implements View.OnClickListener {
 	 private List<Animal> displayList;
 	 Button back,play,next;
 	 GridView gridView;
-	 TextView infoDisplay, score;
+	 TextView infoDisplay, score, stock;
 	 int headCount,childrenCount,count, numOfImages;
 	 MediaPlayer mPlayer;
 	 GridViewAdapter gridViewadapter;
@@ -54,7 +54,7 @@ public class Game extends Activity implements View.OnClickListener {
 	        		infoDisplay.setText("Great Job! You did it!");
 	        		
 	        		
-		        	Global.score+=100;
+		        	Global.score+=10;
 		        	score.setText("SCORE: "+Global.score);
 					mPlayer.stop();
 		
@@ -71,11 +71,14 @@ public class Game extends Activity implements View.OnClickListener {
 	        	else{
 	        		//Toast.makeText(getApplicationContext(),"Sorry, please try again!", Toast.LENGTH_SHORT).show();
 	        		infoDisplay.setText("Sorry. Try Again!");
-		        	//Global.score-=50;
+		        	//Global.score-=10;
 		        	//score.setText("SCORE: "+Global.score);
 					Global.stock -= 1;
-		        	score.setText("STOCK: "+Global.stock);
+		        	stock.setText("    STOCK: "+Global.stock);
 		        	if(Global.stock <= 0) {
+		        		if(Global.score > Global.highScore) { //highScore saving
+		        			Global.highScore = Global.score;
+		        		}
 		        		//infoDisplay.setText("Game Over!");
 		    			mPlayer.stop();
 		    			infoDisplay.setText("Can you guess the sound?");
@@ -86,7 +89,7 @@ public class Game extends Activity implements View.OnClickListener {
 		    			Global.score = 0;
 		    			score.setText("SCORE: "+Global.score);
 		    			Global.stock = 3;
-		            	score.setText("STOCK: "+Global.stock); 
+		            	stock.setText("    STOCK: "+Global.stock); 
 		        	}
 		        	
 		        }
@@ -175,7 +178,9 @@ public class Game extends Activity implements View.OnClickListener {
 		infoDisplay=(TextView)findViewById(R.id.tv_displayGame);
 			infoDisplay.setText("Can you guess the sound?");
 		score=(TextView)findViewById(R.id.tv_score);
-			score.setText("SCORE: "+Global.score);
+		stock=(TextView)findViewById(R.id.tv_stock);
+	    score.setText("SCORE: "+Global.score);
+	    stock.setText("    STOCK: "+Global.score);
 		gridView = (GridView)findViewById(R.id.gridview);
 		headCount=Global.animalHeader.size();
 		displayList= new ArrayList<Animal>();
@@ -189,7 +194,7 @@ public class Game extends Activity implements View.OnClickListener {
 	public void onClick(View v) {
 	
 		switch (v.getId()) {
-		case R.id.b_backGame:
+		case R.id.b_backGame: //reset button
 			mPlayer.stop();
 			infoDisplay.setText("Can you guess the sound?");
 			generateRandomList();
@@ -199,23 +204,23 @@ public class Game extends Activity implements View.OnClickListener {
 			Global.score = 0;
 			score.setText("SCORE: "+Global.score);
 			Global.stock = 3;
-        	score.setText("STOCK: "+Global.stock);  	
+        	stock.setText("    STOCK: "+Global.stock);  	
 			break;
 		case R.id.b_playGame:
 			infoDisplay.setText("Can you guess the sound?");
 			mPlayer.seekTo(0);
 			mPlayer.start();
 			break;
-		case R.id.b_nextGame:
+		case R.id.b_nextGame: //skip button
 			mPlayer.stop();
 			infoDisplay.setText("Can you guess the sound?");
 			generateRandomList();
 			gridViewadapter.notifyDataSetChanged();
 			//gridView.invalidateViews();
 			v.setAlpha(1);
-			Global.score-=100;
+			Global.score-=10;
         	//score.setText("SCORE: "+Global.score);
-        	if((Global.score < 0) || (Global.stock <= 0)) {
+        	if(Global.score < 0) {
         		//infoDisplay.setText("Game Over!");
     			mPlayer.stop();
     			infoDisplay.setText("Can you guess the sound?");
@@ -226,7 +231,7 @@ public class Game extends Activity implements View.OnClickListener {
     			Global.score = 0;
     			score.setText("SCORE: "+Global.score);
     			Global.stock = 3;
-            	score.setText("STOCK: "+Global.stock); 
+            	stock.setText("    STOCK: "+Global.stock); 
         	}
 			break;
 		

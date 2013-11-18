@@ -109,5 +109,13 @@
                    	  android:text="SCORE:"
                       android:textColor="#fffffe"
                       android:textSize="@dimen/settings_textfontsize" />
+                      <TextView
+                      android:id="@+id/tv_stock"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="center"
+                   	  android:text="    STOCK:"
+                      android:textColor="#fffffe"
+                      android:textSize="@dimen/settings_textfontsize" />
                       </LinearLayout>
 </LinearLayout>
