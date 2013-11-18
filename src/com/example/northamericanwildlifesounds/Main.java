@@ -154,7 +154,7 @@ public class Main extends Activity implements View.OnClickListener {
 			Global.animalChild.put("Coyote", coyote);
 			Global.animalChild.put("Fox", fox);
 			Global.animalChild.put("Mountain Lion", mountainlion);
-			Global.animalChild.put("Possum", possum);
+			Global.animalChild.put("Possum", possum); 
 			Global.animalChild.put("Rabbit", rabbit);
 			Global.animalChild.put("Raccoon", raccoon);
 			Global.animalChild.put("Squirrel", squirrel);

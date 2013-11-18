@@ -11,7 +11,7 @@ public class Global {
    public static List<String>tempHeader=new ArrayList<String>();
    public static String currentMode="NORMAL";
     public static String selectedAnimal, selectedHeadAnimal;
-    public static int groupID, childID, Score;
+    public static int groupID, childID, score, stock, highScore;
     public static Animal choosenAnimal=new Animal();
 
 	

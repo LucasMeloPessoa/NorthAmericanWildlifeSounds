@@ -42,7 +42,7 @@
        		     android:layout_height="fill_parent"
        		     android:gravity="center"
        		     android:textColor="#ffffff"
-       		     android:text="Next"
+       		     android:text="Skip"
        		     android:textSize="@dimen/settings_smaller_textfontsize"
        			
        		     android:textStyle="bold" />
