@@ -103,8 +103,8 @@ public class Main extends Activity implements View.OnClickListener {
 
 			List<Animal> deer = new ArrayList<Animal>();
 			deer.add(new Animal("Deer Yelling", "deer", getSoundFile("deer"),getImageURLFile("deer")));
-			 deer.add(new Animal("Doe Grunt", "deer", getSoundFile("deer"),getImageURLFile("buck_grunt")));
-			 deer.add(new Animal("Buck Grunt","deer", getSoundFile("buck_grunt"), getImageURLFile("buck_grunt")));
+			//deer.add(new Animal("Doe Grunt", "deer", getSoundFile("deer"),getImageURLFile("buck_grunt")));
+			//deer.add(new Animal("Buck Grunt","deer", getSoundFile("buck_grunt"), getImageURLFile("buck_grunt")));
 			// deer.add(new Animal("Buck Bawl", getSoundFile("buck_bawl"),
 			// getImageURLFile("buck_brawl")));
 			// deer.add(new Animal("Contact Call", getSoundFile("contact_call"),

@@ -71,7 +71,7 @@ public class Game extends Activity implements View.OnClickListener {
 	        	else{
 	        		//Toast.makeText(getApplicationContext(),"Sorry, please try again!", Toast.LENGTH_SHORT).show();
 	        		infoDisplay.setText("Sorry. Try Again!");
-		        	Global.Score-=25;
+		        	Global.Score-=50;
 		        	score.setText("SCORE: "+Global.Score);
 	        	}
 	        //	infoDisplay.setText("Can you guess the sound?");
@@ -175,7 +175,13 @@ public class Game extends Activity implements View.OnClickListener {
 		switch (v.getId()) {
 		case R.id.b_backGame:
 			mPlayer.stop();
-			super.onBackPressed();
+			infoDisplay.setText("Can you guess the sound?");
+			generateRandomList();
+			gridViewadapter.notifyDataSetChanged();
+			//gridView.invalidateViews();
+			v.setAlpha(1);
+			Global.Score = 0;
+        	score.setText("SCORE: "+Global.Score);
 			break;
 		case R.id.b_playGame:
 			infoDisplay.setText("Can you guess the sound?");
@@ -189,6 +195,8 @@ public class Game extends Activity implements View.OnClickListener {
 			gridViewadapter.notifyDataSetChanged();
 			//gridView.invalidateViews();
 			v.setAlpha(1);
+			Global.Score-=100;
+        	score.setText("SCORE: "+Global.Score);
 			break;
 		
 			
