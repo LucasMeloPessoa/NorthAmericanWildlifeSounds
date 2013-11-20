@@ -1,6 +1,5 @@
 package com.example.northamericanwildlifesounds;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -55,7 +54,5 @@ public class GridViewAdapter extends BaseAdapter {
         name.setText(animal.getName());
 
         return v;
-    }
-
-   
+	}
 }

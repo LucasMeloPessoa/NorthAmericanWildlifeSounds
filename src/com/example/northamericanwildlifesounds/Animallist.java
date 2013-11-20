@@ -1,8 +1,6 @@
 package com.example.northamericanwildlifesounds;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import android.app.Activity;
 
 import android.content.Intent;
@@ -14,12 +12,9 @@ import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 
-import android.widget.Toast;
-
 import com.example.northamericanwildlifesounds.R;
 
 public class Animallist extends Activity {
-	private String[] animalCategory;
 	HashMap<String, Integer> sound, imageURL;
 	ExpandableListAdapter listAdapter;
 	ExpandableListView expListView;
@@ -50,7 +45,8 @@ public class Animallist extends Activity {
 							Global.selectedAnimal = (String) parent
 									.getItemAtPosition(position);
 							Global.selectedHeadAnimal = Global.selectedAnimal;
-							// Toast.makeText(getApplicationContext(),"YOUR_TEXT_HERE", Toast.LENGTH_SHORT).show();
+							// Toast.makeText(getApplicationContext(),"YOUR_TEXT_HERE",
+							// Toast.LENGTH_SHORT).show();
 							if (Global.animalChild.get(
 									Global.selectedHeadAnimal).size() < 2) {
 								processData(position, 0, classID_SD);
@@ -79,12 +75,16 @@ public class Animallist extends Activity {
 			});
 
 			expListView.setOnGroupClickListener(new OnGroupClickListener() {
-				public boolean onGroupClick(ExpandableListView parent, View v,int groupPosition, long id) {
-				//	Global.selectedAnimal = (String) parent.getItemAtPosition(groupPosition);
-					Global.selectedAnimal=(String)Global.animalHeader.get(groupPosition);
+				public boolean onGroupClick(ExpandableListView parent, View v,
+						int groupPosition, long id) {
+					// Global.selectedAnimal = (String)
+					// parent.getItemAtPosition(groupPosition);
+					Global.selectedAnimal = (String) Global.animalHeader
+							.get(groupPosition);
 					Global.selectedHeadAnimal = Global.selectedAnimal;
-					
-					if (Global.animalChild.get(Global.animalHeader.get(groupPosition)).size() == 1) {
+
+					if (Global.animalChild.get(
+							Global.animalHeader.get(groupPosition)).size() == 1) {
 						processData(groupPosition, 0, classID_SD);
 					}
 					return false;

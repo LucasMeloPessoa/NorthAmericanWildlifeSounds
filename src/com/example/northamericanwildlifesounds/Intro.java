@@ -13,15 +13,17 @@ public class Intro extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_intro);
-		Thread timer = new Thread(){
-			public void run(){
-				try{
+		Thread timer = new Thread() {
+			public void run() {
+				try {
 					sleep(2000);
-				}catch(InterruptedException e){
+				} catch (InterruptedException e) {
 					e.printStackTrace();
-				}finally{
-					Intent openStartPoint = new Intent("com.example.northamericanwildlifesounds.MAINACTIVITY");
-					startActivity(openStartPoint);//when this is called, on pause is called after
+				} finally {
+					Intent openStartPoint = new Intent(
+							"com.example.northamericanwildlifesounds.MAINACTIVITY");
+					startActivity(openStartPoint);// when this is called, on
+													// pause is called after
 				}
 			}
 		};
@@ -42,5 +44,3 @@ public class Intro extends Activity {
 		finish();
 	}
 }
-
-
