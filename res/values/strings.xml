@@ -18,5 +18,6 @@
     <string name="pass_str">Great Job! You did it!></string>
     <string name="fail_str">Sorry. Please try again</string>
     <string name="failer">FAILED!</string>
+    <string name="title_activity_highscore">Highscore</string>
 
 </resources>

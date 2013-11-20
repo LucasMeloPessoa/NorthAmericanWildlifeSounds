@@ -40,6 +40,8 @@ public class Game extends Activity implements View.OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		if(Global.stock <= 0) { // so stock 3 when first on.
 			Global.stock = 3;
+			Global.score=0;
+			Global.lose=false;
 		}
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
@@ -79,23 +81,22 @@ public class Game extends Activity implements View.OnClickListener {
 	        		infoDisplay.setText("Sorry. Try Again!");
 		        	//Global.score-=10;
 		        	//score.setText("SCORE: "+Global.score);
-					Global.stock -= 1;
+					Global.stock --;
 		        	stock.setText("    STOCK: "+Global.stock);
+		        	
+		        	
+		        	
 		        	if(Global.stock <= 0) {
 		        		if(Global.score > Global.highScore) { //highScore saving
 		        			Global.highScore = Global.score;
+
 		        		}
-		        		//infoDisplay.setText("Game Over!");
-		    			mPlayer.stop();
-		    			infoDisplay.setText("Can you guess the sound?");
-		    			generateRandomList();
-		    			gridViewadapter.notifyDataSetChanged();
-		    			//gridView.invalidateViews();
-		    			//v.setAlpha(1);
-		    			Global.score = 0;
-		    			score.setText("SCORE: "+Global.score);
-		    			Global.stock = 3;
-		            	stock.setText("    STOCK: "+Global.stock); 
+		        		else
+		        			Global.lose=true;
+		        		
+	        			Intent scoreact= new Intent("com.example.northamericanwildlifesounds.HIGHESTSCORE");
+	        			startActivity(scoreact);
+
 		        	}
 		        	
 		        }
@@ -245,6 +246,12 @@ public class Game extends Activity implements View.OnClickListener {
 			
 		}
 			
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
 	}
 	
 	

@@ -12,6 +12,7 @@ public class Global {
    public static String currentMode="NORMAL";
     public static String selectedAnimal, selectedHeadAnimal;
     public static int groupID, childID, score, stock, highScore;
+    public static boolean lose;
     public static Animal choosenAnimal=new Animal();
 
 	
