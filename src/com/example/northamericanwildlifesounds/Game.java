@@ -87,32 +87,14 @@ public class Game extends Activity implements View.OnClickListener {
 		        	//score.setText("SCORE: "+Global.score);
 					Global.stock --;
 		        	stock.setText("    STOCK: "+Global.stock);
-		        	
-		        	
-		        	
-		        	if(Global.stock <= 0) {
-		        		if(Global.score > Global.highScore) { //highScore saving
-		        			Global.highScore = Global.score;
 
-		        		}
-		        		else
-		        			Global.lose=true;
-		        		if(Global.currentMode.equalsIgnoreCase("ACCESSIBILITY")) {
-		        			Intent scoreact= new Intent("com.example.northamericanwildlifesounds.HIGHESTSCORE");
-		        			startActivity(scoreact);
-		        			} else { //Normal mode popup.
-		        				
-		        				
-		        				
-		        				
-		        				
-		        				
-		        				
-//		        				/*
+		        	if(Global.stock <= 0) {
+
+		    
 				    			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-				    	 
 				    			// set title
 				    			if(Global.score >= Global.highScore) { 
+				          			Global.highScore = Global.score;
 				    				alertDialogBuilder.setTitle("Congratulations - New Record!");		    				
 				    			} else {
 				    				alertDialogBuilder.setTitle("Game Over!");
@@ -149,9 +131,9 @@ public class Game extends Activity implements View.OnClickListener {
 			    					Global.stock = 3;
 			    					stock.setText("    STOCK: "+Global.stock);
 		        				
-		        				
-		        				
-		        			}
+		        	
+		        	
+		        			
 
 		        	}
 		        	
