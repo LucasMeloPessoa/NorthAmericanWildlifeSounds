@@ -69,6 +69,9 @@ public class Game extends Activity implements View.OnClickListener {
 		        	score.setText("SCORE: "+Global.score);
 		        	stock.setText("    STOCK: "+Global.stock);
 					mPlayer.stop();
+					mPlayer = MediaPlayer.create(getBaseContext(), R.raw.right);
+					mPlayer.start();
+					
 		
 					generateRandomList();
 					gridViewadapter.notifyDataSetChanged();
@@ -87,6 +90,10 @@ public class Game extends Activity implements View.OnClickListener {
 		        	//score.setText("SCORE: "+Global.score);
 					Global.stock --;
 		        	stock.setText("    STOCK: "+Global.stock);
+					mPlayer = MediaPlayer.create(getBaseContext(), R.raw.wrong);
+					mPlayer.start();
+					mPlayer=MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound());
+					
 
 		        	if(Global.stock <= 0) {
 
@@ -241,6 +248,8 @@ public class Game extends Activity implements View.OnClickListener {
 		switch (v.getId()) {
 		case R.id.b_backGame: //reset button
 			mPlayer.stop();
+			mPlayer = MediaPlayer.create(getBaseContext(), R.raw.reset);
+			mPlayer.start();
 			infoDisplay.setText("Can you guess the sound?");
 			generateRandomList();
 			gridViewadapter.notifyDataSetChanged();
@@ -258,12 +267,20 @@ public class Game extends Activity implements View.OnClickListener {
 			break;
 		case R.id.b_nextGame: //skip button
 			mPlayer.stop();
+			//mPlayer = MediaPlayer.create(getBaseContext(), R.raw.skip);
+			mPlayer.start();
+			mPlayer=MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound());
+			
 			infoDisplay.setText("Can you guess the sound?");
 			generateRandomList();
 			gridViewadapter.notifyDataSetChanged();
 			//gridView.invalidateViews();
 			v.setAlpha(1);
 			Global.score-=10;
+			//mPlayer = MediaPlayer.create(getBaseContext(), R.raw.wrong);
+			mPlayer.start();
+			mPlayer=MediaPlayer.create(getBaseContext(), Global.choosenAnimal.getSound());
+			
 			score.setText("SCORE: "+Global.score);
         	//score.setText("SCORE: "+Global.score);
         	if(Global.score < 0) {
