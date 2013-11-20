@@ -24,6 +24,9 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 
 public class Game extends Activity implements View.OnClickListener {
 
@@ -35,6 +38,7 @@ public class Game extends Activity implements View.OnClickListener {
 	 MediaPlayer mPlayer;
 	 GridViewAdapter gridViewadapter;
 	 int [] buffer;
+	 final Context context = this; 
 	 
 	 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,9 +97,61 @@ public class Game extends Activity implements View.OnClickListener {
 		        		}
 		        		else
 		        			Global.lose=true;
-		        		
-	        			Intent scoreact= new Intent("com.example.northamericanwildlifesounds.HIGHESTSCORE");
-	        			startActivity(scoreact);
+		        		if(Global.currentMode.equalsIgnoreCase("ACCESSIBILITY")) {
+		        			Intent scoreact= new Intent("com.example.northamericanwildlifesounds.HIGHESTSCORE");
+		        			startActivity(scoreact);
+		        			} else { //Normal mode popup.
+		        				
+		        				
+		        				
+		        				
+		        				
+		        				
+		        				
+//		        				/*
+				    			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+				    	 
+				    			// set title
+				    			if(Global.score >= Global.highScore) { 
+				    				alertDialogBuilder.setTitle("Congratulations - New Record!");		    				
+				    			} else {
+				    				alertDialogBuilder.setTitle("Game Over!");
+				    			}
+				    	 
+				    			// set dialog message
+				    			alertDialogBuilder
+				    			.setMessage("High Score: " + Global.highScore + "  Continue?")
+				    			.setCancelable(false)
+				    			.setPositiveButton("No",new DialogInterface.OnClickListener() {
+				    				public void onClick(DialogInterface dialog,int id) {
+				    					// if this button is clicked, close
+				    					// current activity
+				    					Game.this.finish();
+				    					}
+				    				})
+				    				.setNegativeButton("Yes",new DialogInterface.OnClickListener() {
+				    					public void onClick(DialogInterface dialog,int id) {
+				    						// if this button is clicked, just close
+				    						// the dialog box and do nothing
+				    						dialog.cancel();
+				    					}
+				    				});
+				    	 
+				    				// create alert dialog
+				    				AlertDialog alertDialog = alertDialogBuilder.create();
+				    	 
+			    					// show it
+			    					alertDialog.show();
+				    		//	*/
+		        				
+			    					Global.score = 0;
+			    					score.setText("SCORE: "+Global.score);
+			    					Global.stock = 3;
+			    					stock.setText("    STOCK: "+Global.stock);
+		        				
+		        				
+		        				
+		        			}
 
 		        	}
 		        	
