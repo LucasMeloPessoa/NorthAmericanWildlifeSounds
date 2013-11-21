@@ -34,18 +34,23 @@ public final class R {
         public static final int sound_textfontsize=0x7f060006;
     }
     public static final class drawable {
-        public static final int bobcat=0x7f020000;
-        public static final int coyote=0x7f020001;
-        public static final int deer=0x7f020002;
-        public static final int fox=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int mainlogo=0x7f020005;
-        public static final int mountainlion=0x7f020006;
-        public static final int possum=0x7f020007;
-        public static final int rabbit=0x7f020008;
-        public static final int raccoon=0x7f020009;
-        public static final int squirrel=0x7f02000a;
-        public static final int turkey=0x7f02000b;
+        public static final int alligator=0x7f020000;
+        public static final int bobcat=0x7f020001;
+        public static final int coyote=0x7f020002;
+        public static final int deer=0x7f020003;
+        public static final int elk=0x7f020004;
+        public static final int fox=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int mainlogo=0x7f020007;
+        public static final int moose=0x7f020008;
+        public static final int mountainlion=0x7f020009;
+        public static final int possum=0x7f02000a;
+        public static final int rabbit=0x7f02000b;
+        public static final int raccoon=0x7f02000c;
+        public static final int rattlesnake=0x7f02000d;
+        public static final int squirrel=0x7f02000e;
+        public static final int turkey=0x7f02000f;
+        public static final int warthog=0x7f020010;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0018;
@@ -96,23 +101,28 @@ public final class R {
         public static final int sound_display=0x7f090006;
     }
     public static final class raw {
-        public static final int bobcat=0x7f040000;
-        public static final int bobcat1=0x7f040001;
-        public static final int bobcat2=0x7f040002;
-        public static final int bobcat3=0x7f040003;
-        public static final int coyote=0x7f040004;
-        public static final int deer=0x7f040005;
-        public static final int fox=0x7f040006;
-        public static final int mountainlion=0x7f040007;
-        public static final int possum=0x7f040008;
-        public static final int rabbit=0x7f040009;
-        public static final int raccoon=0x7f04000a;
-        public static final int reset=0x7f04000b;
-        public static final int right=0x7f04000c;
-        public static final int skip=0x7f04000d;
-        public static final int squirrel=0x7f04000e;
-        public static final int turkey=0x7f04000f;
-        public static final int wrong=0x7f040010;
+        public static final int alligator=0x7f040000;
+        public static final int bobcat=0x7f040001;
+        public static final int bobcat1=0x7f040002;
+        public static final int bobcat2=0x7f040003;
+        public static final int bobcat3=0x7f040004;
+        public static final int coyote=0x7f040005;
+        public static final int deer=0x7f040006;
+        public static final int elk=0x7f040007;
+        public static final int fox=0x7f040008;
+        public static final int moose=0x7f040009;
+        public static final int mountainlion=0x7f04000a;
+        public static final int possum=0x7f04000b;
+        public static final int rabbit=0x7f04000c;
+        public static final int raccoon=0x7f04000d;
+        public static final int rattlesnake=0x7f04000e;
+        public static final int reset=0x7f04000f;
+        public static final int right=0x7f040010;
+        public static final int skip=0x7f040011;
+        public static final int squirrel=0x7f040012;
+        public static final int turkey=0x7f040013;
+        public static final int warthog=0x7f040014;
+        public static final int wrong=0x7f040015;
     }
     public static final class string {
         public static final int action_settings=0x7f070004;

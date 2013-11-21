@@ -56,7 +56,7 @@ public class Main extends Activity implements View.OnClickListener {
 			// INSERT MAIN ANIMAL HERE
 			animalCategory = new String[] { "Bobcat", "Coyote", "Deer", "Fox",
 					"Mountain Lion", "Possum", "Rabbit", "Raccoon", "Squirrel",
-					"Turkey" };
+					"Turkey", "Elk", "Moose", "Rattlesnake", "Alligator", "Warthog" };
 
 			// Adding Animal Head data
 			animalCategory = sortStringArray(animalCategory); // to be sorted.
@@ -122,6 +122,26 @@ public class Main extends Activity implements View.OnClickListener {
 			List<Animal> turkey = new ArrayList<Animal>();
 			turkey.add(new Animal("Turkey Calling", "turkey",
 					getSoundFile("turkey"), getImageURLFile("turkey")));
+			
+			List<Animal> elk = new ArrayList<Animal>();
+			elk.add(new Animal("Elk Bugeling", "elk",
+					getSoundFile("elk"), getImageURLFile("elk")));
+			
+			List<Animal> moose = new ArrayList<Animal>();
+			moose.add(new Animal("Moose Calling", "moose",
+					getSoundFile("moose"), getImageURLFile("moose")));
+			
+			List<Animal> rattlesnake = new ArrayList<Animal>();
+			rattlesnake.add(new Animal("Rattlesnake Rattling", "rattlesnake",
+					getSoundFile("rattlesnake"), getImageURLFile("rattlesnake")));
+			
+			List<Animal> alligator = new ArrayList<Animal>();
+			alligator.add(new Animal("Alligator Growling", "alligator",
+					getSoundFile("alligator"), getImageURLFile("alligator")));
+			
+			List<Animal> warthog = new ArrayList<Animal>();
+			warthog.add(new Animal("Warthog Grunting", "warthog",
+					getSoundFile("warthog"), getImageURLFile("warthog")));
 
 			Global.animalChild.put("Deer", deer); // Header, Child data
 			Global.animalChild.put("Bobcat", bobcat);
@@ -133,7 +153,14 @@ public class Main extends Activity implements View.OnClickListener {
 			Global.animalChild.put("Raccoon", raccoon);
 			Global.animalChild.put("Squirrel", squirrel);
 			Global.animalChild.put("Turkey", turkey);
-
+			Global.animalChild.put("Elk", elk);
+			Global.animalChild.put("Moose", moose);
+			Global.animalChild.put("Rattlesnake", rattlesnake);
+			Global.animalChild.put("Alligator", alligator);
+			Global.animalChild.put("Warthog", warthog);
+			
+			
+			
 		}
 	}
 
