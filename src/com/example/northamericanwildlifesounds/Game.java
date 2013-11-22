@@ -93,8 +93,8 @@ public class Game extends Activity implements View.OnClickListener {
 						// set dialog message
 						alertDialogBuilder
 								.setMessage(
-										"High Score: " + Global.highScore
-												+ "  Continue?")
+										"Current Score: " + Global.score + " \nHigh Score: " + Global.highScore
+												+ "  \nContinue?")
 								.setCancelable(false)
 								.setPositiveButton("No",
 										new DialogInterface.OnClickListener() {

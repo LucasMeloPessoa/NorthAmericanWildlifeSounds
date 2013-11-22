@@ -57,7 +57,7 @@
         </activity>
         <activity
             android:name="com.example.northamericanwildlifesounds.SoundDisplay"
-            android:label="@string/title_activity_sound_display" >
+            android:label="@string/classNameSoundDisplay" >
             <intent-filter>
                 <action android:name="com.example.northamericanwildlifesounds.SOUNDDISPLAY" />
 
@@ -66,7 +66,7 @@
         </activity>
         <activity
             android:name="com.example.northamericanwildlifesounds.subListView"
-            android:label="@string/title_activity_sound_display" >
+            android:label="@string/classNameSubview" >
             <intent-filter>
                 <action android:name="com.example.northamericanwildlifesounds.SUBLISTVIEW" />
 
